@@ -121,3 +121,184 @@ if __name__ == "__main__":
     # pip install requests
     
     main()
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chic Threads - Fashion Blog & Shop</title>
+    <style>
+        /* CSS goes here! (See section 2 below) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* Light off-white for a clean look */
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #FF69B4; /* Hot Pink - Very Fashionable */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #4CAF50; /* Vibrant Green - A complementary splash */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700; /* Gold on hover */
+        }
+
+        /* Main Content Styles */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            display: flex; /* Use Flexbox for side-by-side layout */
+            gap: 20px;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            flex: 2; /* Takes up 2/3 of the space */
+            padding: 20px;
+            background-color: white;
+            border-left: 5px solid #FF69B4; /* Pink accent border */
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .blog-post h3 {
+            color: #FF4500; /* Orange-Red for Post Titles */
+        }
+
+        /* Shop Section (Sidebar) */
+        .shop-section {
+            flex: 1; /* Takes up 1/3 of the space */
+            padding: 20px;
+            background-color: #DDA0DD; /* Plum/Lavender for a different colorful section */
+            color: #333;
+            text-align: center;
+        }
+
+        .shop-item {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-item button {
+            background-color: #FFD700; /* Gold button */
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>**CHIC THREADS**</h1>
+        <p>Your Daily Dose of Style & Shopping</p>
+    </header>
+
+    <nav>
+        <a href="#blog">Blog Home</a>
+        <a href="#shop">Shop New Arrivals</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="blog-section" id="blog">
+            <h2>**Latest Fashion Trends**</h2>
+
+            <article class="blog-post">
+                <h3>Spring's Must-Have Prints: Floral & Geometric</h3>
+                <p><small>Posted on Oct 22, 2025</small></p>
+                <p>Forget the neutrals—this season is all about bold statements! We dive into how to style the perfect floral dress for day and geometric patterns for night. <a href="#">Read More...</a></p>
+            </article>
+            
+            <article class="blog-post">
+                <h3>The Return of the Wide-Leg Pant</h3>
+                <p><small>Posted on Oct 20, 2025</small></p>
+                <p>Narrow silhouettes are out, and comfort is in. See our top 5 picks for wide-leg pants that flatter every figure and find out where to shop them. <a href="#">Read More...</a></p>
+            </article>
+
+        </section>
+
+        <aside class="shop-section" id="shop">
+            <h2>**Shop The Look**</h2>
+            <p>New arrivals posted weekly!</p>
+
+            <div class="shop-item">
+                <p><strong>The "Sunset" Maxi Dress</strong></p>
+                <p>$49.99</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="shop-item">
+                <p><strong>Emerald Green Blazer</strong></p>
+                <p>$75.00</p>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="shop-item">
+                <p><strong>Chunky Gold Hoops</strong></p>
+                <p>$19.50</p>
+                <button>Add to Cart</button>
+            </div>
+            
+        </aside>
+
+    </div> <footer>
+        &copy; 2025 Chic Threads Fashion Co. | Style Your Life.
+    </footer>
+
+</body>
+</html>
+    
