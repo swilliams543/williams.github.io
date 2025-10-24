@@ -302,3 +302,20 @@ if __name__ == "__main__":
 </body>
 </html>
     
+<aside class="shop-section" id="shop">
+            <h2>**Shop The Look**</h2>
+            <p>New arrivals posted weekly!</p>
+
+            <div class="shop-item">
+                <p><strong>[AUTOMATED_PRODUCT_NAME_1]</strong></p>
+                <p>[AUTOMATED_PRICE_1]</p>
+                <button>[IF STOCK > 0] Add to Cart [ELSE] Out of Stock</button> 
+            </div>
+
+            <div class="shop-item">
+                <p><strong>[AUTOMATED_PRODUCT_NAME_2]</strong></p>
+                <p>[AUTOMATED_PRICE_2]</p>
+                <button>[IF STOCK > 0] Add to Cart [ELSE] Out of Stock</button>
+            </div>
+            
+            </aside>
