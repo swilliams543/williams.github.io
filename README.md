@@ -846,3 +846,339 @@ if __name__ == "__main__":
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctoStyle | The GitHub Fashion Hub</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font Setup and Scroll Behavior */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f7f7f7; /* Light gray background */
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #f68c09, #a955f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Notification Bar for Automation Feedback -->
+    <div id="notification-box" class="fixed top-4 right-4 z-50 transition-transform duration-300 transform translate-x-full">
+        <!-- Notification content will be injected here by JS -->
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <a href="#" class="text-3xl font-extrabold tracking-tight">
+                <span class="text-gradient">OctoStyle</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#blog" class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Blog</a>
+                <a href="#shop" class="text-gray-600 hover:text-pink-600 transition duration-150 font-medium">Shop</a>
+                <a href="#" class="text-gray-600 hover:text-teal-600 transition duration-150 font-medium">About</a>
+                <button id="cart-button" class="bg-gray-800 text-white px-4 py-1 rounded-full text-sm font-semibold hover:bg-gray-700 transition duration-150 flex items-center">
+                    Cart (0)
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1a2 2 0 012 2v2H5a2 2 0 00-2 2v2a2 2 0 002 2h10a2 2 0 002-2v-2a2 2 0 00-2-2h-1V5a2 2 0 012-2h1a1 1 0 100-2H3zM9 13a1 1 0 01-1 1H7a1 1 0 110-2h1a1 1 0 011 1zm4 0a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1z" />
+                    </svg>
+                </button>
+            </nav>
+            <button class="md:hidden p-2 rounded-md hover:bg-gray-100 transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center bg-white p-8 rounded-2xl shadow-xl border-t-8 border-teal-400">
+            <h1 class="text-6xl font-extrabold mb-4 text-gray-900 leading-tight">
+                Style That Ships Fast
+            </h1>
+            <p id="dynamic-welcome" class="text-2xl text-gray-500 mb-6 font-light">
+                Discover the latest releases and curated commits.
+            </p>
+            <a href="#shop" class="inline-block bg-pink-500 text-white text-lg font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-pink-600 transition duration-300 transform hover:scale-105">
+                Shop New Arrivals
+            </a>
+        </div>
+    </main>
+
+    <!-- Automation/Stat Tracker Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div class="bg-gray-800 text-white p-6 rounded-xl shadow-2xl flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <h2 class="text-2xl font-bold text-teal-400">Live Octo-Data</h2>
+            <div class="flex items-center space-x-2">
+                <span class="text-lg">Total Transactions:</span>
+                <span id="sales-counter" class="text-3xl font-extrabold text-pink-500 transition duration-100 ease-in-out">1245</span>
+            </div>
+            <p class="text-sm text-gray-400">
+                Data refreshes automatically!
+            </p>
+        </div>
+    </section>
+
+    <!-- Look of the Week Section (New Content) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div class="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-pink-500 grid md:grid-cols-2 gap-8 items-center">
+            <!-- Image Side -->
+            <div>
+                <h2 class="text-4xl font-extrabold text-pink-600 mb-4 md:hidden">Commit of the Week</h2>
+                <img src="https://placehold.co/800x600/1f2937/a955f6?text=The+Pull+Request+Power+Look" alt="Featured Look of the Week: Stylish outfit with GitHub aesthetic" class="rounded-xl shadow-2xl w-full h-auto object-cover">
+            </div>
+            
+            <!-- Text and Details Side -->
+            <div>
+                <h2 class="text-5xl font-extrabold text-gray-900 mb-4 hidden md:block">
+                    Commit of the Week
+                </h2>
+                <h3 class="text-2xl font-semibold mb-3 text-teal-500">
+                    The Pull Request Power Look
+                </h3>
+                <p class="text-gray-600 mb-6">
+                    This week, we're merging high fashion with high functionality. This look features the **"Fork" Flowy Shirt** and the versatile **"Main Branch" Cargo Pants**. It's the perfect uniform for a late-night coding session or a high-stakes meeting. Get ready to push your style to the main repository!
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-teal-500 font-bold w-32">Featured Item 1:</span>
+                        <a href="#shop" class="text-gray-800 hover:text-teal-500 font-medium">"Fork" Flowy Shirt ($45)</a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-teal-500 font-bold w-32">Featured Item 2:</span>
+                        <a href="#shop" class="text-gray-800 hover:text-teal-500 font-medium">"Main Branch" Cargo Pants ($65)</a>
+                    </div>
+                </div>
+
+                <button onclick="showNotification('Added the entire Pull Request Power Look to cart!', 'success')" class="mt-8 bg-pink-500 text-white text-lg font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-pink-600 transition duration-300 transform hover:scale-105">
+                    Add Entire Look to Cart
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-10 text-center">
+            The Latest Merges <span class="text-teal-500">// Blog</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Blog Post 1 - Updated with user's content -->
+            <article class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                <img src="https://placehold.co/600x400/10b981/ffffff?text=Green+Vest+Look" alt="Model wearing a bright green vest and dress pants" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-green-600 bg-green-100 px-3 py-1 rounded-full mb-3 inline-block">Weekly Style Commit</span>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Look of the Week: Summer Green Merge</h3>
+                    <p class="text-gray-600 text-sm">
+                        This unique, chic look pairs a long, sleeveless **colorful vest** with sharp **dress pants** and a black cami (or a silky top for extra polish). The bright color is balanced by **brown, pointed-toe sandals**. Perfect for work or an event, this summer-inspired ensemble ensures you stand out with individual flair!
+                    </p>
+                    <a href="#shop" class="mt-4 inline-block text-green-500 hover:text-green-700 font-medium text-sm">View Component Pieces &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                <img src="https://placehold.co/600x400/2dd4bf/1f2937?text=Teal+Tee+Mockup" alt="Model wearing a teal t-shirt" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-100 px-3 py-1 rounded-full mb-3 inline-block">Fashion Tech</span>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">How to Style Your Terminal</h3>
+                    <p class="text-gray-600 text-sm">
+                        From VScode themes to command line prompts, your digital style is as important as your outfit. Get inspired!
+                    </p>
+                    <a href="#" class="mt-4 inline-block text-teal-500 hover:text-teal-700 font-medium text-sm">Read Full Post &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+                <img src="https://placehold.co/600x400/f68c09/ffffff?text=Orange+Beanie+Mockup" alt="Person wearing an orange beanie" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-pink-600 bg-pink-100 px-3 py-1 rounded-full mb-3 inline-block">Community</span>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Meet the Top 5 Contributors</h3>
+                    <p class="text-gray-600 text-sm">
+                        A quick chat with the developers whose style game is as strong as their commits. Interview highlights inside.
+                    </p>
+                    <a href="#" class="mt-4 inline-block text-pink-500 hover:text-pink-700 font-medium text-sm">Read Full Post &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-10 text-center">
+            The Octo-Goods <span class="text-pink-500">// Shop</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-4 flex flex-col items-center text-center group">
+                <img src="https://placehold.co/400x400/a955f6/ffffff?text=The+Deployer+Tee" alt="The Deployer T-Shirt" class="rounded-lg mb-4 w-full h-auto">
+                <h3 class="text-lg font-semibold text-gray-900">The Deployer Tee</h3>
+                <p class="text-gray-500 mb-3">$29.99</p>
+                <button onclick="quickAddToCart('The Deployer Tee')" class="w-full bg-purple-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-600 transition duration-300 transform group-hover:scale-105">
+                    Quick Add (M)
+                </button>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-4 flex flex-col items-center text-center group">
+                <img src="https://placehold.co/400x400/f68c09/ffffff?text=The+Commit+Beanie" alt="The Commit Beanie" class="rounded-lg mb-4 w-full h-auto">
+                <h3 class="text-lg font-semibold text-gray-900">The Commit Beanie</h3>
+                <p class="text-gray-500 mb-3">$19.99</p>
+                <button onclick="quickAddToCart('The Commit Beanie')" class="w-full bg-yellow-500 text-gray-800 font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300 transform group-hover:scale-105">
+                    Quick Add (OS)
+                </button>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-4 flex flex-col items-center text-center group">
+                <img src="https://placehold.co/400x400/2dd4bf/1f2937?text=The+Branch+Jacket" alt="The Branch Jacket" class="rounded-lg mb-4 w-full h-auto">
+                <h3 class="text-lg font-semibold text-gray-900">The Branch Jacket</h3>
+                <p class="text-gray-500 mb-3">$79.99</p>
+                <button onclick="quickAddToCart('The Branch Jacket')" class="w-full bg-teal-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300 transform group-hover:scale-105">
+                    Quick Add (L)
+                </button>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-4 flex flex-col items-center text-center group">
+                <img src="https://placehold.co/400x400/ec4899/ffffff?text=The+Issue+Socks" alt="The Issue Socks" class="rounded-lg mb-4 w-full h-auto">
+                <h3 class="text-lg font-semibold text-gray-900">The Issue Socks</h3>
+                <p class="text-gray-500 mb-3">$12.99</p>
+                <button onclick="quickAddToCart('The Issue Socks')" class="w-full bg-pink-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-600 transition duration-300 transform group-hover:scale-105">
+                    Quick Add (OS)
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-16 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <p class="text-2xl font-bold mb-4">OctoStyle</p>
+            <div class="flex justify-center space-x-6 text-sm mb-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-150">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-150">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-150">Contact</a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2025 OctoStyle. All rights reserved. Code licensed under MIT.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Automation and Dynamic Features -->
+    <script>
+        // --- Setup and Initialization ---
+        let cartCount = 0;
+        let currentSales = 1245;
+        const salesCounterEl = document.getElementById('sales-counter');
+        const cartButtonEl = document.getElementById('cart-button');
+        const notificationBoxEl = document.getElementById('notification-box');
+        const dynamicWelcomeEl = document.getElementById('dynamic-welcome');
+
+        /**
+         * Function to display a dynamic, animated notification message.
+         * @param {string} message - The text content of the notification.
+         * @param {string} type - 'success' or 'error' to determine color.
+         */
+        function showNotification(message, type = 'success') {
+            const colorClass = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+            
+            const notification = document.createElement('div');
+            notification.className = `p-4 mb-2 rounded-xl shadow-xl text-white font-semibold ${colorClass} max-w-xs`;
+            notification.textContent = message;
+            
+            // Append and show
+            notificationBoxEl.appendChild(notification);
+            notificationBoxEl.classList.remove('translate-x-full');
+            
+            // Automation: Hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'transition-opacity');
+                setTimeout(() => {
+                    notification.remove();
+                    // If no more notifications, move box off-screen
+                    if (notificationBoxEl.children.length === 0) {
+                        notificationBoxEl.classList.add('translate-x-full');
+                    }
+                }, 500); // Wait for fade transition
+            }, 3000);
+        }
+
+
+        // --- Automation 1: Live Sales Counter ---
+        /**
+         * Periodically increments the sales counter to simulate live activity.
+         */
+        function updateSalesCounter() {
+            // Randomly increase sales every 1-3 seconds
+            const delay = Math.floor(Math.random() * 2000) + 1000;
+            const increment = Math.floor(Math.random() * 3) + 1;
+            
+            setTimeout(() => {
+                currentSales += increment;
+                salesCounterEl.textContent = currentSales.toLocaleString();
+                updateSalesCounter(); // Recursive call for continuous loop
+            }, delay);
+        }
+        
+        // --- Automation 2: Dynamic Welcome Message ---
+        /**
+         * Changes the welcome message based on the time of day.
+         */
+        function setDynamicWelcome() {
+            const hour = new Date().getHours();
+            let greeting = "Discover the latest releases and curated commits.";
+
+            if (hour < 12) {
+                greeting = "Good morning! Time to start coding your style for the day.";
+            } else if (hour < 18) {
+                greeting = "Good afternoon! Refresh your wardrobe with a fast merge.";
+            } else {
+                greeting = "Good evening! Unwind and browse our community drops.";
+            }
+            dynamicWelcomeEl.textContent = greeting;
+        }
+
+        // --- Core Feature: Quick Add to Cart ---
+        /**
+         * Simulates adding an item to the cart and triggers automation feedback.
+         * @param {string} productName - Name of the product being added.
+         */
+        function quickAddToCart(productName) {
+            cartCount++;
+            cartButtonEl.textContent = `Cart (${cartCount})`;
+            
+            showNotification(`${productName} added to cart!`, 'success');
+            
+            // Optional: Visually confirm the sales spike
+            salesCounterEl.classList.add('text-4xl');
+            setTimeout(() => {
+                salesCounterEl.classList.remove('text-4xl');
+            }, 500);
+        }
+
+        // --- Run on page load ---
+        window.onload = function() {
+            setDynamicWelcome();
+            updateSalesCounter(); // Start the live sales automation
+        };
+    </script>
+</body>
+</html>
