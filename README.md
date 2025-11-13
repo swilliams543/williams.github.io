@@ -1182,3 +1182,204 @@ if __name__ == "__main__":
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stiletto Stories | Official Fashion Blog & Boutique</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and a custom color palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'fashion-pink': '#EC4899', // Bright Pink
+                        'fashion-gold': '#FACC15', // Gold/Amber accent
+                        'fashion-dark': '#1F2937', // Dark Slate
+                        'fashion-light': '#FEF3F4', // Light Pink background
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for a glossy, elevated feel */
+        .gradient-header {
+            background: linear-gradient(90deg, #F9A8D4 0%, #EC4899 100%);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+        }
+        .shop-button {
+            transition: all 0.3s ease;
+        }
+        .shop-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(252, 211, 77, 0.7);
+        }
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-fashion-light font-sans text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 p-4 gradient-header">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-white tracking-widest">
+                Stiletto Stories
+            </h1>
+            <nav class="space-x-6 hidden md:flex">
+                <a href="#blog" class="text-white hover:text-fashion-gold font-medium transition duration-300">Blog</a>
+                <a href="#shop" class="text-white hover:text-fashion-gold font-medium transition duration-300">Shop Looks</a>
+                <a href="#" class="text-white hover:text-fashion-gold font-medium transition duration-300">About</a>
+            </nav>
+            <button class="md:hidden p-2 text-white hover:text-fashion-gold">
+                <!-- Hamburger Icon (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- Hero Section -->
+        <section class="text-center py-16 mb-12 bg-white rounded-xl shadow-xl overflow-hidden">
+            <h2 class="text-5xl md:text-6xl font-black text-fashion-dark mb-4 leading-tight">
+                Style Is Your Signature.
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Discover the latest runway trends, street style secrets, and shop every curated look right here.
+            </p>
+            <a href="#shop" class="inline-block px-10 py-4 bg-fashion-gold text-fashion-dark font-bold text-lg rounded-full shadow-lg hover:bg-yellow-500 shop-button">
+                Shop The Current Edit
+            </a>
+        </section>
+
+        <!-- Weekly Blog Section -->
+        <section id="blog" class="mb-16">
+            <h3 class="text-4xl font-bold text-fashion-dark mb-8 border-b-4 border-fashion-pink pb-2">Weekly Stories</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Blog Post 1 -->
+                <div class="blog-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <!-- Placeholder Image for Blog Post -->
+                    <img src="https://placehold.co/400x250/F472B6/FFFFFF?text=The+Trench" alt="Blog Post Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-xs text-fashion-pink font-semibold mb-1">SEP 10, 2025</p>
+                    <h4 class="text-2xl font-semibold text-fashion-dark mb-3">The Return of the Classic Trench</h4>
+                    <p class="text-gray-600 mb-4">How to style the iconic raincoat for Fall 2025, moving from business casual to edgy evening wear.</p>
+                    <a href="blog-post-1.html" class="text-fashion-pink hover:text-fashion-dark font-medium flex items-center">
+                        Read Full Post
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <!-- Placeholder Image for Blog Post -->
+                    <img src="https://placehold.co/400x250/F472B6/FFFFFF?text=Jewelry+Stack" alt="Blog Post Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-xs text-fashion-pink font-semibold mb-1">SEP 03, 2025</p>
+                    <h4 class="text-2xl font-semibold text-fashion-dark mb-3">Mastering the Art of Jewelry Stacking</h4>
+                    <p class="text-gray-600 mb-4">Chains, rings, and bracelets—the perfect formula for layering without looking overdone.</p>
+                    <a href="blog-post-2.html" class="text-fashion-pink hover:text-fashion-dark font-medium flex items-center">
+                        Read Full Post
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <!-- Placeholder Image for Blog Post -->
+                    <img src="https://placehold.co/400x250/F472B6/FFFFFF?text=Neon+Pop" alt="Blog Post Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-xs text-fashion-pink font-semibold mb-1">AUG 27, 2025</p>
+                    <h4 class="text-2xl font-semibold text-fashion-dark mb-3">A Pop of Neon: Don't Be Shy with Color</h4>
+                    <p class="text-gray-600 mb-4">Integrating bold, saturated colors into your otherwise neutral wardrobe for a statement.</p>
+                    <a href="blog-post-3.html" class="text-fashion-pink hover:text-fashion-dark font-medium flex items-center">
+                        Read Full Post
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop The Look Section -->
+        <section id="shop" class="mb-16">
+            <h3 class="text-4xl font-bold text-fashion-dark mb-8 border-b-4 border-fashion-gold pb-2">Shop The Looks</h3>
+            <p class="text-gray-700 mb-8">Click on any outfit card to be redirected to the purchase links for the exact items or stylish alternatives.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Outfit Card 1: The Parisian Casual -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/600x400/DC2626/FFFFFF?text=Outfit+1" alt="Parisian Casual Outfit" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h4 class="text-xl font-bold text-fashion-dark mb-2">The Parisian Casual</h4>
+                        <p class="text-sm text-gray-500 mb-4">Featured in 'The Return of the Classic Trench'</p>
+                        <a href="https://yourshoplink.com/trench-look-1" target="_blank" class="block py-3 px-4 bg-fashion-pink text-white font-semibold rounded-lg hover:bg-pink-700 shop-button">
+                            Buy The Look
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Outfit Card 2: The Neon Statement -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=Outfit+2" alt="Neon Statement Outfit" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h4 class="text-xl font-bold text-fashion-dark mb-2">The Neon Statement</h4>
+                        <p class="text-sm text-gray-500 mb-4">Featured in 'A Pop of Neon'</p>
+                        <a href="https://yourshoplink.com/neon-look-2" target="_blank" class="block py-3 px-4 bg-fashion-pink text-white font-semibold rounded-lg hover:bg-pink-700 shop-button">
+                            Buy The Look
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Outfit Card 3: Weekend Retreat -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/600x400/059669/FFFFFF?text=Outfit+3" alt="Weekend Retreat Outfit" class="w-full h-64 object-cover">
+                    <div class="p-5 text-center">
+                        <h4 class="text-xl font-bold text-fashion-dark mb-2">Weekend Retreat</h4>
+                        <p class="text-sm text-gray-500 mb-4">Coming soon to the 'Style Diaries'</p>
+                        <a href="https://yourshoplink.com/weekend-look-3" target="_blank" class="block py-3 px-4 bg-fashion-pink text-white font-semibold rounded-lg hover:bg-pink-700 shop-button">
+                            Buy The Look
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-fashion-dark text-white p-8 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm mb-4 md:mb-0">&copy; 2025 Stiletto Stories. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <!-- Social Icons -->
+                <a href="#" class="text-gray-400 hover:text-fashion-pink transition duration-300">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-fashion-pink transition duration-300">Pinterest</a>
+                <a href="#" class="text-gray-400 hover:text-fashion-pink transition duration-300">TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
