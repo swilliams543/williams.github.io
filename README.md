@@ -1383,3 +1383,301 @@ if __name__ == "__main__":
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superfood Source - Official Repository Blog</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light Gray Background */
+        }
+        /* Custom gradient for hero background */
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%); /* Emerald to Light Green */
+        }
+    </style>
+    <!-- Lucide icons for visual appeal -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- Logo/Title -->
+            <div class="flex items-center space-x-2">
+                <i data-lucide="leaf" class="text-green-600 w-6 h-6"></i>
+                <span class="text-2xl font-extrabold text-green-700 tracking-tight">
+                    Superfood <span class="text-lime-500">Source</span>
+                </span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#weekly" class="text-gray-600 hover:text-green-600 transition duration-150 font-medium">Weekly Feature</a>
+                <a href="#recipes" class="text-gray-600 hover:text-green-600 transition duration-150 font-medium">Recipes</a>
+                <a href="#" class="text-gray-600 hover:text-green-600 transition duration-150 font-medium">About</a>
+                <a href="https://github.com/your-repo-link" class="text-blue-600 hover:text-blue-800 transition duration-150 font-medium flex items-center space-x-1" target="_blank">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub Repo</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Placeholder) -->
+            <button class="md:hidden p-2 text-gray-600 hover:text-green-600 rounded-lg transition duration-150">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient py-20 sm:py-24 text-white shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                    Fuel Your Body. Change Your Life.
+                </h1>
+                <p class="text-xl sm:text-2xl font-light mb-8 opacity-90 max-w-3xl mx-auto">
+                    The official recipe repository for Superfood Source—your weekly guide to delicious, nutrient-dense eating.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#weekly" class="bg-white text-green-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        See This Week's Recipe
+                    </a>
+                    <a href="#recipes" class="border border-white text-white hover:bg-white hover:text-green-600 font-bold py-3 px-8 rounded-full transition duration-300">
+                        Explore All Recipes
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Mission Statement Section (Updated for Monthly Theme) -->
+        <section class="bg-green-700 py-8 text-white shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+                    "A Superfood A Day Keeps the Doctor Away"
+                </h2>
+                <p class="text-xl font-medium opacity-100 max-w-4xl mx-auto">
+                    <span class="font-extrabold text-lime-200">This Month's Focus:</span> In a world where fast food is right around the corner, it is so easy to get a hold of unhealthy foods while it is harder to easily get a hold of healthy, organic food. Stay tuned for the rest of this month as we show you easy ways to incorporate a superfood a day with fun, simple, delicious recipes that are not only good for your body but good for your overall health as well.
+                </p>
+            </div>
+        </section>
+
+        <!-- Weekly Feature Section -->
+        <section id="weekly" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10 text-center">
+                🍽️ Our Latest Superfood Recipe Highlight 
+            </h2>
+
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden md:flex">
+                <!-- Image/Visual Area -->
+                <div class="md:w-1/2">
+                    <img 
+                        src="https://placehold.co/800x600/10b981/ffffff?text=KALE+SALAD" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600/10b981/ffffff?text=Weekly+Recipe+Image';"
+                        alt="A vibrant salad with kale and other superfoods" 
+                        class="w-full h-64 md:h-full object-cover"
+                    >
+                </div>
+                <!-- Content Area -->
+                <div class="md:w-1/2 p-8 sm:p-12 lg:p-16">
+                    <span class="inline-block bg-lime-100 text-lime-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                        NEW POST
+                    </span>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">
+                        Mediterranean Quinoa Bowl with Lemony Dressing
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        This week, we're harnessing the power of **Quinoa** and combining it with fresh vegetables and creamy avocado. This bowl is packed with protein, fiber, and healthy fats, making it the perfect quick lunch or light dinner.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="clock" class="text-green-500 w-5 h-5"></i>
+                            <span class="font-medium">Prep Time: 15 Mins</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="text-green-500 w-5 h-5"></i>
+                            <span class="font-medium">Serves: 4</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="zap" class="text-green-500 w-5 h-5"></i>
+                            <span class="font-medium">Superfood: Quinoa, Avocado</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="star" class="text-green-500 w-5 h-5"></i>
+                            <span class="font-medium">Difficulty: Easy</span>
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-flex items-center justify-center bg-green-600 text-white hover:bg-green-700 font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                        View Full Recipe & Instructions
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Grid Section -->
+        <section id="recipes" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12 text-center">
+                    Latest Superfood Recipes & Blog Posts
+                </h2>
+                
+                <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Recipe Card 1 (Kale) -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                        <img 
+                            src="https://placehold.co/600x400/34d399/1f2937?text=Berry+Smoothie" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/1f2937?text=Recipe+Placeholder';"
+                            alt="A bright berry smoothie in a glass" 
+                            class="w-full h-48 object-cover"
+                        >
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase text-blue-600 tracking-wider">Smoothies & Drinks</span>
+                            <h3 class="mt-2 text-xl font-bold text-gray-900">
+                                Blue Magic Smoothie: Antioxidant Powerhouse
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm">
+                                Featuring **Blueberries** and **Chia Seeds** for sustained energy and brain health. Perfect morning fuel.
+                            </p>
+                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                                Read More
+                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Recipe Card 2 (Avocado) -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                        <img 
+                            src="https://placehold.co/600x400/f59e0b/ffffff?text=AVOCADO+TOAST" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Recipe+Placeholder';"
+                            alt="Gourmet avocado toast with toppings" 
+                            class="w-full h-48 object-cover"
+                        >
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase text-yellow-600 tracking-wider">Breakfast</span>
+                            <h3 class="mt-2 text-xl font-bold text-gray-900">
+                                The Ultimate High-Protein Avocado Toast
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm">
+                                Maximize your healthy fat intake with creamy **Avocado** and a sprinkle of **Flaxseed**.
+                            </p>
+                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                                Read More
+                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Card 3 (Spinach/Greens) -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                        <img 
+                            src="https://placehold.co/600x400/60a5fa/ffffff?text=GREEN+SOUP" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/60a5fa/ffffff?text=Recipe+Placeholder';"
+                            alt="A warm bowl of vibrant green vegetable soup" 
+                            class="w-full h-48 object-cover"
+                        >
+                        <div class="p-6">
+                            <span class="text-xs font-semibold uppercase text-indigo-600 tracking-wider">Soups & Stews</span>
+                            <h3 class="mt-2 text-xl font-bold text-gray-900">
+                                Warming Winter Green Detox Soup
+                            </h3>
+                            <p class="mt-3 text-gray-600 text-sm">
+                                A comforting soup loaded with **Spinach**, **Broccoli**, and powerful detoxifying spices.
+                            </p>
+                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                                Read More
+                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA/Subscription Section -->
+        <section class="bg-green-100 py-16 sm:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-extrabold text-green-900 mb-4">
+                    Get the Weekly Superfood Recipes Delivered!
+                </h2>
+                <p class="text-lg text-green-700 mb-8">
+                    Follow the repository to track every new recipe commit, or imagine subscribing to our newsletter below.
+                </p>
+                <form onsubmit="event.preventDefault(); showMessage();" class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Enter your email address..." required 
+                           class="w-full sm:w-2/3 p-3 border border-green-300 rounded-lg focus:ring-green-500 focus:border-green-500 shadow-inner" aria-label="Email for newsletter">
+                    <button type="submit" class="w-full sm:w-1/3 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 shadow-md transform hover:scale-[1.02]">
+                        Join Now
+                    </button>
+                </form>
+                <p id="message-box" class="mt-4 text-green-800 font-semibold hidden">Thanks for your interest! (This is a mock sign-up for the demo.)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-semibold text-lime-400 mb-4">Blog Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-150">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Recipe Index</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Superfood Glossary</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-lime-400 mb-4">The Code</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://github.com/your-repo-link" target="_blank" class="hover:text-white transition duration-150">View Repository</a></li>
+                        <li><a href="https://github.com/your-repo-link/issues" target="_blank" class="hover:text-white transition duration-150">Submit an Issue</a></li>
+                        <li><a href="https://github.com/your-repo-link/pulls" target="_blank" class="hover:text-white transition duration-150">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-2">
+                    <h4 class="text-lg font-semibold text-lime-400 mb-4">Contact</h4>
+                    <p class="text-sm text-gray-400">
+                        For business inquiries, please contact:
+                        <a href="mailto:blogowner@example.com" class="text-green-400 hover:text-white block mt-1">blogowner@example.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+                &copy; <span id="current-year"></span> Superfood Source. All Recipes and Code Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Function to update the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Function to show a success message after form submission
+        function showMessage() {
+            const messageBox = document.getElementById('message-box');
+            messageBox.classList.remove('hidden');
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
