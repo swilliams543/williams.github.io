@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chic Chroma: A Colorful Fashion Blog & Shop</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: #ff69b4; /* Hot Pink */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+
+        .nav-bar {
+            background-color: #4CAF50; /* Vibrant Green */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background-color: #FFD700; /* Gold */
+            color: #333;
+        }
+
+        /* Main Content Layout */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .blog-posts {
+            flex: 3; /* Blog takes up more space */
+        }
+
+        .shop-sidebar {
+            flex: 1; /* Sidebar for general shop info */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .shop-sidebar h3 {
+            color: #ff69b4;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .shop-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .shop-sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .shop-sidebar a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .shop-sidebar a:hover {
+            color: #ff69b4;
+        }
+
+        /* Blog Post Styling */
+        .post {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h2 {
+            color: #ff69b4;
+            border-bottom: 3px dashed #FFD700;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Shop Links Section */
+        .shop-links {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px dashed #4CAF50;
+            border-radius: 5px;
+            background-color: #e9f7e9;
+        }
+
+        .shop-links h3 {
+            color: #4CAF50;
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        .shop-link-item {
+            display: block;
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 5px solid #ff69b4;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: background-color 0.3s, border-left-color 0.3s;
+        }
+
+        .shop-link-item:hover {
+            background-color: #fff0f5;
+            border-left-color: #FFD700;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>CHIC CHROMA</h1>
+        <p>Your Weekly Dose of Daring Color and Unique Style</p>
+    </header>
+
+    <nav class="nav-bar">
+        <a href="#home">HOME</a>
+        <a href="#blog">BLOG</a>
+        <a href="#shop">SHOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="blog-posts" id="blog">
+
+            <article class="post">
+                <h2>🍂 Fave Fall Look</h2>
+                <p class="post-meta">Posted on November 10, 2025</p>
+                <div class="post-content">
+                    <p>The fall time is here and now is the time to pull out burnt orange tops and dresses, leopard prints and the oh so adorable booties and tall boots. The look of the week includes a **copper colored basic top with a shiny sheen** paired with **beige wide leg pants** and a **black oversized blazer**.</p>
+                    <p>Pair this look with a set of **golden bangles** and **statement earrings** in the same color family as the top and a **black pointy toe wedge** for a fun festive, elegant, stylish look for work!</p>
+                </div>
+                
+                <div class="shop-links">
+                    <h3>🛍️ Shop the Fave Fall Look:</h3>
+                    <a href="https://example.com/copper-top" target="_blank" class="shop-link-item">Copper Sheen Top (Similar Item)</a>
+                    <a href="https://example.com/beige-pants" target="_blank" class="shop-link-item">Beige Wide Leg Trousers</a>
+                    <a href="https://example.com/black-blazer" target="_blank" class="shop-link-item">Oversized Black Blazer</a>
+                    <a href="https://example.com/pointy-wedges" target="_blank" class="shop-link-item">Black Pointy Toe Wedge</a>
+                    <a href="https://example.com/gold-jewelry" target="_blank" class="shop-link-item">Golden Bangles & Statement Earrings Set</a>
+                </div>
+            </article>
+            
+            <article class="post">
+                <h2>☀️ Look of the Week</h2>
+                <p class="post-meta">Posted on November 3, 2025</p>
+                <div class="post-content">
+                    <p>For this look I have paired a **long, sleeveless colorful vest** with **dress pants**. I paired it with a **black cami**. You can also pair this with a silky top as well. Since the color is bright, I paired this suit with **brown, pointed toe sandals**. This is a great look for work or an event.</p>
+                    <p>You are sure to have your own individuality if you opt for this unique, chic look. For my hair, I wore a **red bob** which complements the color green. Whether you are going to work or going to an event, you're sure to be unique with this summer, inspired look!</p>
+                </div>
+                
+                <div class="shop-links">
+                    <h3>🛍️ Shop the Look of the Week:</h3>
+                    <a href="https://example.com/colorful-vest" target="_blank" class="shop-link-item">Colorful Sleeveless Vest</a>
+                    <a href="https://example.com/dress-pants" target="_blank" class="shop-link-item">Tailored Dress Pants (Similar)</a>
+                    <a href="https://example.com/black-cami" target="_blank" class="shop-link-item">Essential Black Cami</a>
+                    <a href="https://example.com/brown-sandals" target="_blank" class="shop-link-item">Brown Pointed Toe Sandals</a>
+                    <a href="https://example.com/red-bob-wig" target="_blank" class="shop-link-item">Styling Product: Red Bob Wig (Similar)</a>
+                </div>
+            </article>
+
+        </section>
+
+        <aside class="shop-sidebar" id="shop">
+            <h3>🛒 Featured Categories</h3>
+            <ul>
+                <li><a href="https://example.com/outerwear" target="_blank">Blazers & Outerwear</a></li>
+                <li><a href="https://example.com/trousers" target="_blank">Trousers & Skirts</a></li>
+                <li><a href="https://example.com/colorful-tops" target="_blank">Vibrant Tops</a></li>
+                <li><a href="https://example.com/footwear" target="_blank">Shoes & Boots</a></li>
+                <li><a href="https://example.com/accessories" target="_blank">Jewelry & Accessories</a></li>
+            </ul>
+
+            <br>
+            
+            <h3>🔥 Style Spotlight</h3>
+            <p>Don't miss our exclusive collection of **Green & Orange** statement pieces, perfect for transition season!</p>
+            <a href="https://example.com/spotlight-collection" target="_blank" style="display: inline-block; background-color: #ff69b4; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">View Collection</a>
+        </aside>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Chic Chroma Fashion Blog. All rights reserved. | Follow us on social media!</p>
+    </footer>
+
+</body>
+</html>
