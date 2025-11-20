@@ -274,7 +274,7 @@
     </ol>
     <p class="text-sm font-bold text-red-500 mt-2">Note: This smoothie is very delicious!</p>
 </div>
-                            <!DOCTYPE html>
+                           <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -283,13 +283,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            /* Adjusted margin-top to account for the fixed header bar */
+            margin: 0;
+            padding: 0;
             background-color: #f7f7f7;
             color: #333;
         }
+        /* --- NEW CSS FOR BLUE TOP --- */
+        .header-bar {
+            background-color: #007bff; /* A standard blue color */
+            height: 50px; /* Adjust height as needed */
+            width: 100%;
+            margin-bottom: 20px; /* Space between the bar and the recipe card */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* ---------------------------- */
         .recipe-container {
             max-width: 600px;
-            margin: auto;
+            /* Adjust margin to center it */
+            margin: 20px auto;
             background: #fff;
             padding: 30px;
             border-radius: 8px;
@@ -321,42 +333,46 @@
 </head>
 <body>
 
+    <div class="header-bar"></div>
+
     <section id="blueberry-pie-recipe" class="recipe-container p-6 bg-white rounded-xl shadow-2xl">
-    
-    <img
-        src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/pie.jpg"
-        alt="Simple Blueberry Pie"
-        class="w-full h-auto rounded-lg mb-6 shadow-md"
-    >
 
-    <h1 class="text-3xl font-extrabold text-blue-350 mb-2">🫐 Simple Blueberry Pie</h1>
-    <p class="text-lg text-gray-300 mb-6">
-        <span class="font-semibold">Superfood:</span>
-        <strong class="text-blue-800">Blueberries</strong>
-    </p>
+        <img
+            src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/pie.jpg"
+            alt="Simple Blueberry Pie"
+            class="w-full h-auto rounded-lg mb-6 shadow-md"
+        >
 
-    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">Ingredients</h2>
-    <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
-        <li>1 **Pre-made Gluten-Free Pie Crust** (9-inch)</li>
-        <li>1 jar of **Sugar-Free Blueberry Jam**</li>
-        <li>1 bag **Frozen Blueberries**</li>
-    </ul>
+        <h1 class="text-3xl font-extrabold text-blue-350 mb-2">🫐 Simple Blueberry Pie</h1>
+        <p class="text-lg text-gray-300 mb-6">
+            <span class="font-semibold">Superfood:</span>
+            <strong class="text-blue-800">Blueberries</strong>
+        </p>
 
-    <div class="p-4 my-6 bg-yellow-50 border-l-4 border-yellow-500 rounded-md shadow-inner">
-        <p class="font-bold text-yellow-700">Chef's Note:</p>
-        <p class="text-yellow-800">For the best results, please source **Organic or Non-GMO** ingredients for the pie crust, jam, and frozen blueberries.</p>
-    </div>
+        <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">Ingredients</h2>
+        <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+            <li>1 **Pre-made Gluten-Free Pie Crust** (9-inch)</li>
+            <li>1 jar of **Sugar-Free Blueberry Jam**</li>
+            <li>1 bag **Frozen Blueberries**</li>
+        </ul>
 
-    <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">Directions</h2>
-    <ol class="list-decimal list-inside space-y-4 text-gray-700">
-        <li>Preheat your oven to **350°F (175°C)**.</li>
-        <li>In a medium-sized mixing bowl, combine the entire jar of sugar-free blueberry jam and the bag of frozen blueberries. Mix gently until the blueberries are coated.</li>
-        <li>Pour the blueberry and jam mixture directly into the pre-made Gluten-Free Pie Crust. Spread the filling evenly.</li>
-        <li>Place the pie in the preheated oven and allow it to bake for **one hour**.</li>
-        <li>Remove the pie when the filling is bubbly and the crust is golden brown. Allow to cool completely before slicing and serving. Enjoy!</li>
-    </ol>
-</section>
-    
+        <div class="p-4 my-6 bg-yellow-50 border-l-4 border-yellow-500 rounded-md shadow-inner">
+            <p class="font-bold text-yellow-700">Chef's Note:</p>
+            <p class="text-yellow-800">For the best results, please source **Organic or Non-GMO** ingredients for the pie crust, jam, and frozen blueberries.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">Directions</h2>
+        <ol class="list-decimal list-inside space-y-4 text-gray-700">
+            <li>Preheat your oven to **350°F (175°C)**.</li>
+            <li>In a medium-sized mixing bowl, combine the entire jar of sugar-free blueberry jam and the bag of frozen blueberries. Mix gently until the blueberries are coated.</li>
+            <li>Pour the blueberry and jam mixture directly into the pre-made Gluten-Free Pie Crust. Spread the filling evenly.</li>
+            <li>Place the pie in the preheated oven and allow it to bake for **one hour**.</li>
+            <li>Remove the pie when the filling is bubbly and the crust is golden brown. Allow to cool completely before slicing and serving. Enjoy!</li>
+        </ol>
+    </section>
+
+</body>
+</html>
  
 
    
