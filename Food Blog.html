@@ -158,299 +158,162 @@
                 </div>
             </div>
         </section>
-
-        <!-- Recipe Grid Section -->
-        <section id="recipes" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12 text-center">
-                    Latest Superfood Recipes & Blog Posts
-                </h2>
-                
-                <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Recipe Card 1 (Blueberry/Chia) -->
-                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
-                        <img 
-                            src="https://placehold.co/600x400/34d399/1f2937?text=Berry+Smoothie" 
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/1f2937?text=Recipe+Placeholder';"
-                            alt="A bright berry smoothie in a glass" 
-                            class="w-full h-48 object-cover"
-                        >
-                        <div class="p-6">
-                            <span class="text-xs font-semibold uppercase text-blue-600 tracking-wider">Smoothies & Drinks</span>
-                            <h3 class="mt-2 text-xl font-bold text-gray-900">
-                                Blue Magic Smoothie: Antioxidant Powerhouse
-                            </h3>
-                            <p class="mt-3 text-gray-600 text-sm">
-                                Featuring **Blueberries** and **Chia Seeds** for sustained energy and brain health. Perfect morning fuel.
-                            </p>
-                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
-                                Read More
-                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Recipe Card 2 (Avocado) -->
-                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
-                        <img 
-                            src="https://placehold.co/600x400/f59e0b/ffffff?text=AVOCADO+TOAST" 
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Recipe+Placeholder';"
-                            alt="Gourmet avocado toast with toppings" 
-                            class="w-full h-48 object-cover"
-                        >
-                        <div class="p-6">
-                            <span class="text-xs font-semibold uppercase text-yellow-600 tracking-wider">Breakfast</span>
-                            <h3 class="mt-2 text-xl font-bold text-gray-900">
-                                The Ultimate High-Protein Avocado Toast
-                            </h3>
-                            <p class="mt-3 text-gray-600 text-sm">
-                                Maximize your healthy fat intake with creamy **Avocado** and a sprinkle of **Flaxseed**.
-                            </p>
-                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
-                                Read More
-                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Recipe Card 3 (Spinach/Greens) -->
-                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
-                        <img 
-                            src="https://placehold.co/600x400/60a5fa/ffffff?text=GREEN+SOUP" 
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/60a5fa/ffffff?text=Recipe+Placeholder';"
-                            alt="A warm bowl of vibrant green vegetable soup" 
-                            class="w-full h-48 object-cover"
-                        >
-                        <div class="p-6">
-                            <span class="text-xs font-semibold uppercase text-indigo-600 tracking-wider">Soups & Stews</span>
-                            <h3 class="mt-2 text-xl font-bold text-gray-900">
-                                Warming Winter Green Detox Soup
-                            </h3>
-                            <p class="mt-3 text-gray-600 text-sm">
-                                A comforting soup loaded with **Spinach**, **Broccoli**, and powerful detoxifying spices.
-                            </p>
-                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
-                                Read More
-                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side-by-Side Recipes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* General styling for the page */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f7f7f7;
-        }
-
-        /* --- Flexbox Container for Side-by-Side Layout --- */
-        .two-recipe-layout {
-            display: flex;
-            /* Wrap recipes to a new line on smaller screens */
-            flex-wrap: wrap; 
-            /* Space between the two recipe cards */
-            gap: 20px; 
-            /* Center the recipes in the view */
-            justify-content: center;
-            align-items: flex-start; /* Align items to the top */
-        }
-
-        /* Styling for a single recipe card to occupy half the width */
-        .recipe-card-wrapper {
-            /* On large screens, take a little less than half to account for gap */
-            flex: 1 1 45%; 
-            /* Set a maximum width for very large screens */
-            max-width: 500px;
-            /* Make sure the recipe card is the full height of the wrapper */
-            height: 100%; 
-        }
-
-        /* Media query for smaller screens: stack recipes vertically */
-        @media (max-width: 1024px) {
-            .recipe-card-wrapper {
-                /* Take full width on smaller screens */
-                flex: 1 1 100%; 
-            }
-        }
-        
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes Side-by-Side: Smoothie & Blueberry Pie</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
-        }
-        .header-bar {
-            background-color: #007bff;
-            height: 50px;
-            width: 100%;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        /* --- NEW FLEXBOX CONTAINER FOR SIDE-BY-SIDE LAYOUT --- */
-        .flex-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
-            gap: 20px; /* Space between the cards */
-            max-width: 1240px; /* Adjust as needed for content width */
-            margin: 0 auto 50px auto; /* Centers the container */
-            padding: 0 20px;
-        }
-        /* --- STYLING FOR INDIVIDUAL RECIPE CARDS --- */
-        .recipe-card {
-            flex: 1 1 45%; /* Allows cards to grow and take up roughly 45% width (for two columns) */
-            min-width: 300px; /* Minimum width before wrapping */
-            background: #fff;
-            padding: 0; /* Padding is inside the p-6 div */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-        .recipe-card img {
-            width: 100%;
-            height: 200px; /* Consistent height for images */
-            object-fit: cover;
-        }
-        .recipe-card h2, .recipe-card h3 {
-             border-bottom: 2px solid #ccc;
-             padding-bottom: 5px;
-             margin-top: 15px;
-             color: #4a4a4a;
-        }
-        .recipe-card ul, .recipe-card ol {
-            line-height: 1.6;
-            padding-left: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header-bar"></div>
-
-    <div class="flex-container">
-
-        <div class="recipe-card bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
-            <img
-                src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/smoothie.jpg"
-                onerror="this.onerror=null;this.src='https://placehold.co/600x400/fcd34d/1f2937?text=Recipe+Placeholder';"
-                alt="A yellow and red fruit smoothie"
-                class="w-full h-48 object-cover"
-            >
-            <div class="p-6">
-                <span class="text-xs font-semibold uppercase text-pink-600 tracking-wider">Smoothies & Drinks</span>
-                <h2 class="mt-2 text-xl font-bold text-gray-900">
-                    Splashing Fruity Yellow Smoothie
-                </h2>
-                <p class="mt-3 text-gray-600 text-sm">
-                    <span class="font-medium">Superfood: <strong class="text-gray-800">Strawberries</strong></span>
-                </p>
-
-                <h3>Ingredients:</h3>
-                <ul>
-                    <li>1 cup of frozen mango</li>
-                    <li>1 cup of frozen strawberries</li>
-                    <li>1 cup of pineapples</li>
-                    <li>2 cups of almond milk...</li>
-                    <li>A splash of maple syrup</li>
-                </ul>
-
-                <h3>Directions:</h3>
-                <ol>
-                    <li>Add ingredients to a high-speed blender and blend.</li>
-                    <li>Pour it into a glass and enjoy!</li>
-                    <li>*Please use organic or Non-GMO ingredients.</li>
-                </ol>
-                <p class="text-sm font-bold text-red-500 mt-2">Note: This smoothie is very delicious!</p>
-            </div>
-        </div>
-
-        <div class="recipe-card bg-white rounded-xl shadow-2xl transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
-            <img
-                src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/pie.jpg"
-                alt="Simple Blueberry Pie"
-                class="w-full h-auto rounded-lg shadow-md"
-            >
-            <div class="p-6">
-                <span class="text-xs font-semibold uppercase text-blue-600 tracking-wider">Desserts & Baking</span>
-                <h2 class="mt-2 text-xl font-bold text-gray-900">
-                    🫐 Simple Blueberry Pie
-                </h2>
-                <p class="text-lg text-gray-300 mb-6">
-                    <span class="font-semibold">Superfood:</span>
-                    <strong class="text-blue-800">Blueberries</strong>
-                </p>
-
-                <h3 class="text-2xl font-bold text-gray-800 pb-2 mb-4">Ingredients</h3>
-                <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
-                    <li>1 **Pre-made Gluten-Free Pie Crust** (9-inch)</li>
-                    <li>1 jar of **Sugar-Free Blueberry Jam**</li>
-                    <li>1 bag **Frozen Blueberries**</li>
-                </ul>
-
-                <div class="p-4 my-6 bg-yellow-50 border-l-4 border-yellow-500 rounded-md shadow-inner">
-                    <p class="font-bold text-yellow-700">Chef's Note: Source **Organic or Non-GMO** ingredients.</p>
+<!-- Recipe Grid Section -->
+<section id="recipes" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12 text-center">
+            Latest Superfood Recipes & Blog Posts
+        </h2>
+       
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Recipe Card 1 (Blueberry/Chia) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                <img
+                    src="https://placehold.co/600x400/34d399/1f2937?text=Berry+Smoothie"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/1f2937?text=Recipe+Placeholder';"
+                    alt="A bright berry smoothie in a glass"
+                    class="w-full h-48 object-cover"
+                >
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase text-blue-600 tracking-wider">Smoothies & Drinks</span>
+                    <h3 class="mt-2 text-xl font-bold text-gray-900">
+                        Blue Magic Smoothie: Antioxidant Powerhouse
+                    </h3>
+                    <p class="mt-3 text-gray-600 text-sm">
+                        Featuring **Blueberries** and **Chia Seeds** for sustained energy and brain health. Perfect morning fuel.
+                    </p>
+                    <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                        Read More
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </a>
                 </div>
-
-                <h3 class="text-2xl font-bold text-gray-800 pb-2 mb-4">Directions</h3>
-                <ol class="list-decimal list-inside space-y-4 text-gray-700">
-                    <li>Preheat your oven to **350°F**.</li>
-                    <li>Combine jam and frozen blueberries.</li>
-                    <li>Pour into the Pie Crust.</li>
-                    <li>Bake for **one hour**.</li>
-                    <li>Cool completely before serving. Enjoy!</li>
-                </ol>
             </div>
-        </div>
+           
+            <!-- Recipe Card 2 (Avocado) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                <img
+                    src="https://placehold.co/600x400/f59e0b/ffffff?text=AVOCADO+TOAST"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Recipe+Placeholder';"
+                    alt="Gourmet avocado toast with toppings"
+                    class="w-full h-48 object-cover"
+                >
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase text-yellow-600 tracking-wider">Breakfast</span>
+                    <h3 class="mt-2 text-xl font-bold text-gray-900">
+                        The Ultimate High-Protein Avocado Toast
+                    </h3>
+                    <p class="mt-3 text-gray-600 text-sm">
+                        Maximize your healthy fat intake with creamy **Avocado** and a sprinkle of **Flaxseed**.
+                    </p>
+                    <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                        Read More
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+            </div>
 
-    </div>
+            <!-- Recipe Card 3 (Spinach/Greens) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1">
+                <img
+                    src="https://placehold.co/600x400/60a5fa/ffffff?text=GREEN+SOUP"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/60a5fa/ffffff?text=Recipe+Placeholder';"
+                    alt="A warm bowl of vibrant green vegetable soup"
+                    class="w-full h-48 object-cover"
+                >
+                <div class="p-6">
+                    <span class="text-xs font-semibold uppercase text-indigo-600 tracking-wider">Soups & Stews</span>
+                    <h3 class="mt-2 text-xl font-bold text-gray-900">
+                        Warming Winter Green Detox Soup
+                    </h3>
+                    <p class="mt-3 text-gray-600 text-sm">
+                        A comforting soup loaded with **Spinach**, **Broccoli**, and powerful detoxifying spices.
+                    </p>
+                    <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
+                        Read More
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+            </div>
 
-</body>
-</html>
-</body>
+            <!-- Recipe Card 4 – Splashing Fruity Yellow Smoothie (full recipe shown) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1 flex flex-col">
+                <img
+                    src="https://placehold.co/600x400/fcd34d/1f2937?text=YELLOW+SMOOTHIE"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/fcd34d/1f2937?text=Recipe+Placeholder';"
+                    alt="A yellow and red fruit smoothie"
+                    class="w-full h-48 object-cover"
+                >
+                <div class="p-6 flex-grow">
+                    <span class="text-xs font-semibold uppercase text-pink-600 tracking-wider">Smoothies & Drinks</span>
+                    <h3 class="mt-2 text-xl font-bold text-gray-900">
+                        Splashing Fruity Yellow Smoothie
+                    </h3>
 
-</html>
-</body>
-</html>
+                    <div class="mt-4 text-gray-700 text-sm leading-relaxed">
+                        <h4 class="font-bold text-lg mt-4 mb-2">Ingredients:</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>1 cup of frozen mango</li>
+                            <li>1 cup of frozen strawberries</li>
+                            <li>1 cup of pineapples</li>
+                            <li>2 cups of almond milk or organic, grass-fed milk</li>
+                            <li>A splash of maple syrup</li>
+                        </ul>
 
-    </div>
+                        <h4 class="font-bold text-lg mt-6 mb-2">Directions:</h4>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>Add the mango, strawberries, pineapples, almond milk, and maple syrup to a high-speed blender and blend it for a few minutes until it's thick or thin, according to your taste.</li>
+                            <li>Pour it into a glass and finally take a sip and enjoy this fruity delight!</li>
+                            <li>*Please use organic or Non-GMO ingredients.</li>
+                        </ol>
 
-</body>
-</html>
-</body>
-</html>
- 
-
-   
-
-</body>
-</html>
-                            </p>
-                            <a href="#" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm">
-                                Read More
-                                <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                            </a>
-                        </div>
+                        <p class="text-sm font-bold text-red-500 mt-4">Note: This smoothie is very delicious!</p>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Recipe Card 5 – Simple Blueberry Pie (full recipe shown) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-xl transform hover:-translate-y-1 flex flex-col">
+                <img
+                    src="https://placehold.co/600x400/6366f1/ffffff?text=Blueberry+Pie"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/6366f1/ffffff?text=Recipe+Placeholder';"
+                    alt="Simple Blueberry Pie"
+                    class="w-full h-48 object-cover"
+                >
+                <div class="p-6 flex-grow">
+                    <span class="text-xs font-semibold uppercase text-purple-600 tracking-wider">Desserts</span>
+                    <h3 class="mt-2 text-xl font-bold text-gray-900">
+                        🫐 Simple & Delicious Blueberry Pie
+                    </h3>
+
+                    <div class="mt-4 text-gray-700 text-sm leading-relaxed">
+                        <h4 class="font-bold text-lg mt-4 mb-2">Ingredients</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>1 Pre-made Gluten-Free Pie Crust (9-inch)</li>
+                            <li>1 jar of Sugar-Free Blueberry Jam</li>
+                            <li>1 bag Frozen Blueberries</li>
+                        </ul>
+
+                        <div class="mt-4 p-3 bg-green-50 border border-green-200 rounded text-sm">
+                            <strong>Chef's Note:</strong> For the best results, please source <strong>Organic or Non-GMO</strong> ingredients for the pie crust, jam, and frozen blueberries.
+                        </div>
+
+                        <h4 class="font-bold text-lg mt-6 mb-2">Directions</h4>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>Preheat your oven to <strong>350°F (175°C)</strong>.</li>
+                            <li>In a medium-sized mixing bowl, combine the entire jar of sugar-free blueberry jam and the bag of frozen blueberries. Mix gently until the blueberries are coated.</li>
+                            <li>Pour the blueberry and jam mixture directly into the pre-made Gluten-Free Pie Crust. Spread the filling evenly.</li>
+                            <li>Place the pie in the preheated oven and allow it to bake for <strong>one hour</strong>.</li>
+                            <li>Remove the pie when the filling is bubbly and the crust is golden brown. Allow to cool completely before slicing and serving. Enjoy!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+          CARD 6 GOES HERE.
+          
+        </div>
+    </div>
+</section>
         
         
         <!-- CTA/Subscription Section -->
