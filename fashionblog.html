@@ -4,1368 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chic Chroma: A Colorful Fashion Blog & Shop</title>
+
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&family=Times+New+Roman&display=swap" rel="stylesheet">
+    
     <style>
-        /* General Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f9; color: #333; }
+        h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+        .header { background: linear-gradient(135deg, #ff69b4, #ff1493); }
+        .nav-bar { background-color: #4CAF50; }
+        .nav-bar a:hover { background-color: #FFD700; color: #333 !important; }
+        
+        /* Hero Product Image */
+        .img-container { aspect-ratio: 4/5; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .img-container img:hover { transform: scale(1.05); }
 
-        /* Header & Navigation */
-        .header {
-            background-color: #ff69b4; /* Hot Pink */
+        /* Related & Christmas Cards */
+        .related-card img, .christmas-card img { 
+            height: 320px; object-fit: cover; 
+        }
+        .related-card:hover, .christmas-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+        .christmas-card img {
+            border-bottom: 6px solid #d4a017;
+        }
+        .sale-badge {
+            background-color: #d42424;
             color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 3px;
-        }
-
-        .header p {
-            margin: 5px 0 0;
-            font-style: italic;
-        }
-
-        .nav-bar {
-            background-color: #4CAF50; /* Vibrant Green */
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background-color: #FFD700; /* Gold */
-            color: #333;
-        }
-
-        /* Main Content Layout */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .blog-posts {
-            flex: 3; /* Blog takes up more space */
-        }
-
-        .shop-sidebar {
-            flex: 1; /* Sidebar for general shop info */
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-        }
-
-        .shop-sidebar h3 {
-            color: #ff69b4;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-            margin-top: 0;
-        }
-
-        .shop-sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .shop-sidebar li {
-            margin-bottom: 10px;
-        }
-
-        .shop-sidebar a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .shop-sidebar a:hover {
-            color: #ff69b4;
-        }
-
-        /* Blog Post Styling */
-        .post {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .post h2 {
-            color: #ff69b4;
-            border-bottom: 3px dashed #FFD700;
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-size: 2em;
-        }
-
-        .post-meta {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-        }
-
-        .post-content p {
-            margin-bottom: 15px;
-        }
-
-        /* Shop Links Section */
-        .shop-links {
-            margin-top: 25px;
-            padding: 15px;
-            border: 1px dashed #4CAF50;
-            border-radius: 5px;
-            background-color: #e9f7e9;
-        }
-
-        .shop-links h3 {
-            color: #4CAF50;
-            margin-top: 0;
-            border-bottom: none;
-        }
-
-        .shop-link-item {
-            display: block;
-            background-color: #fff;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-left: 5px solid #ff69b4;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: background-color 0.3s, border-left-color 0.3s;
-        }
-
-        .shop-link-item:hover {
-            background-color: #fff0f5;
-            border-left-color: #FFD700;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 8px;
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <header class="header">
-        <h1>CHIC CHROMA</h1>
-        <p>Your Weekly Dose of Daring Color and Unique Style</p>
+    <!-- Header -->
+    <header class="header text-white text-center py-12 shadow-lg">
+        <h1 class="text-6xl font-bold">CHIC CHROMA</h1>
+        <p class="text-2xl italic mt-3">Your Weekly Dose of Daring Color and Unique Style</p>
     </header>
 
-    <nav class="nav-bar">
-        <a href="#home">HOME</a>
-        <a href="#blog">BLOG</a>
-        <a href="#shop">SHOP</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+    <!-- Navigation -->
+    <nav class="nav-bar text-white py-5 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-lg font-bold">
+            <a href="#home">HOME</a>
+            <a href="#blog">BLOG</a>
+            <a href="#featured">SHOP</a>
+            <a href="#christmas">CHRISTMAS</a>
+            <a href="#about">ABOUT</a>
+            <a href="#contact">CONTACT</a>
+        </div>
     </nav>
 
-    <div class="container">
-        
-        <section class="blog-posts" id="blog">
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-3 gap-10">
 
-            <article class="post">
-                <h2>🍂 Fave Fall Look</h2>
-                <p class="post-meta">Posted on November 10, 2025</p>
-                <div class="post-content">
-                    <p>The fall time is here and now is the time to pull out burnt orange tops and dresses, leopard prints and the oh so adorable booties and tall boots. The look of the week includes a **copper colored basic top with a shiny sheen** paired with **beige wide leg pants** and a **black oversized blazer**.</p>
-                    <p>Pair this look with a set of **golden bangles** and **statement earrings** in the same color family as the top and a **black pointy toe wedge** for a fun festive, elegant, stylish look for work!</p>
-                </div>
-                
-                <div class="shop-links">
-                    <h3>🛍️ Shop the Fave Fall Look:</h3>
-                    <a href="https://example.com/copper-top" target="_blank" class="shop-link-item">Copper Sheen Top (Similar Item)</a>
-                    <a href="https://example.com/beige-pants" target="_blank" class="shop-link-item">Beige Wide Leg Trousers</a>
-                    <a href="https://example.com/black-blazer" target="_blank" class="shop-link-item">Oversized Black Blazer</a>
-                    <a href="https://example.com/pointy-wedges" target="_blank" class="shop-link-item">Black Pointy Toe Wedge</a>
-                    <a href="https://example.com/gold-jewelry" target="_blank" class="shop-link-item">Golden Bangles & Statement Earrings Set</a>
-                </div>
-            </article>
-            
-            <article class="post">
-                <h2>☀️ Look of the Week</h2>
-                <p class="post-meta">Posted on November 3, 2025</p>
-                <div class="post-content">
-                    <p>For this look I have paired a **long, sleeveless colorful vest** with **dress pants**. I paired it with a **black cami**. You can also pair this with a silky top as well. Since the color is bright, I paired this suit with **brown, pointed toe sandals**. This is a great look for work or an event.</p>
-                    <p>You are sure to have your own individuality if you opt for this unique, chic look. For my hair, I wore a **red bob** which complements the color green. Whether you are going to work or going to an event, you're sure to be unique with this summer, inspired look!</p>
-                </div>
-                
-                <div class="shop-links">
-                    <h3>🛍️ Shop the Look of the Week:</h3>
-                    <a href="https://example.com/colorful-vest" target="_blank" class="shop-link-item">Colorful Sleeveless Vest</a>
-                    <a href="https://example.com/dress-pants" target="_blank" class="shop-link-item">Tailored Dress Pants (Similar)</a>
-                    <a href="https://example.com/black-cami" target="_blank" class="shop-link-item">Essential Black Cami</a>
-                    <a href="https://example.com/brown-sandals" target="_blank" class="shop-link-item">Brown Pointed Toe Sandals</a>
-                    <a href="https://example.com/red-bob-wig" target="_blank" class="shop-link-item">Styling Product: Red Bob Wig (Similar)</a>
-                </div>
+        <!-- Blog Posts -->
+        <section class="lg:col-span-2 space-y-12" id="blog">
+            <article class="bg-white rounded-2xl shadow-xl p-10">
+                <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Fave Fall Look</h2>
+                <p class="text-sm text-gray-500 my-4">Posted on November 10, 2025</p>
+                <p class="text-lg leading-relaxed">The fall time is here — burnt orange tops, leopard prints, booties and tall boots are back! This week’s look: <strong>copper sheen top + beige wide-leg pants + black oversized blazer</strong>. Pair with golden jewelry and pointy toe wedges for a chic work-ready vibe!</p>
             </article>
 
+            <article class="bg-white rounded-2xl shadow-xl p-10">
+                <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Look of the Week</h2>
+                <p class="text-sm text-gray-500 my-4">Posted on November 3, 2025</p>
+                <p class="text-lg leading-relaxed">Bright sleeveless colorful vest + dress pants + black cami. Finished with brown pointed toe sandals and a bold red bob wig. Perfect for standing out at work or events!</p>
+            </article>
         </section>
 
-        <aside class="shop-sidebar" id="shop">
-            <h3>🛒 Featured Categories</h3>
-            <ul>
-                <li><a href="https://example.com/outerwear" target="_blank">Blazers & Outerwear</a></li>
-                <li><a href="https://example.com/trousers" target="_blank">Trousers & Skirts</a></li>
-                <li><a href="https://example.com/colorful-tops" target="_blank">Vibrant Tops</a></li>
-                <li><a href="https://example.com/footwear" target="_blank">Shoes & Boots</a></li>
-                <li><a href="https://example.com/accessories" target="_blank">Jewelry & Accessories</a></li>
-            </ul>
-
-            <br>
-            
-            <h3>🔥 Style Spotlight</h3>
-            <p>Don't miss our exclusive collection of **Green & Orange** statement pieces, perfect for transition season!</p>
-            <a href="https://example.com/spotlight-collection" target="_blank" style="display: inline-block; background-color: #ff69b4; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">View Collection</a>
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-pink-600 border-b-2 border-green-500 pb-3">Featured Categories</h3>
+                <ul class="mt-6 space-y-4 text-lg">
+                    <li><a href="#" class="hover:text-pink-600 font-semibold">Blazers & Outerwear</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-semibold">Trousers & Skirts</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-semibold">Vibrant Tops</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-semibold">Shoes & Boots</a></li>
+                    <li><a href="#" class="hover:text-pink-600 font-semibold">Jewelry & Accessories</a></li>
+                </ul>
+            </div>
         </aside>
-
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 Chic Chroma Fashion Blog. All rights reserved. | Follow us on social media!</p>
-    </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black and White Pizzazz</title>
-    
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom font setup */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7;
-        }
-        /* Custom image container for aspect ratio on all devices */
-        .img-container {
-            aspect-ratio: 4/5; /* Slightly taller than wide for a fashion look */
-            overflow: hidden;
-        }
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body class="antialiased text-gray-800">
-
-    <!-- Header / Navigation Bar -->
-    <header class="bg-white shadow-md sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold text-black tracking-tighter">CHIC THREADS</a>
-            <nav>
-                <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 mx-3">Shop All</a>
-                <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 mx-3">New Arrivals</a>
-                <a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900 mx-3">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Product Section -->
-    <main class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-12">
-        <div class="bg-white rounded-xl shadow-2xl overflow-hidden md:flex md:flex-row-reverse">
-
-            <!-- Product Image / Hero Section -->
+    <!-- FEATURED HERO: Black and White Pizzazz -->
+    <section class="max-w-7xl mx-auto px-6 mt-20" id="featured">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden md:flex">
             <div class="md:w-1/2 img-container bg-gray-100">
-                <!-- IMPORTANT: Use the uploaded file name 'dress.jpg' -->
-                <img 
-                    src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dress.jpg" 
-                    alt="Stunning model wearing a black and white geometric pattern midi dress." 
-                    class="transition duration-500 ease-in-out hover:scale-105"
-                    onerror="this.onerror=null;this.src='https://placehold.co/800x1000/000000/ffffff?text=Image+Missing';"
-                >
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dress.jpg"
+                     alt="Black and White Pizzazz Midi Dress">
             </div>
-
-            <!-- Product Details and CTA -->
-            <div class="md:w-1/2 p-6 sm:p-10 lg:p-12">
-                <p class="text-xs font-semibold uppercase text-gray-500 mb-2 tracking-widest">New Arrival | Shop Now</p>
+            <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">New Arrival • Limited Edition</p>
+                <h1 class="text-5xl lg:text-6xl font-extrabold mt-4 mb-6">Black and White Pizzazz Midi Dress</h1>
+                <p class="text-5xl font-bold text-red-600 mb-6">$89.99 <span class="text-2xl line-through text-gray-400">$120.00</span></p>
+                <p class="text-gray-700 text-lg mb-8">Bold geometric pattern on premium Ponte knit. Form-fitting, sleeveless, knee-length — perfect for making a statement.</p>
                 
-                <!-- Main Product Title -->
-                <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight text-black">The Black and White Pizzazz Midi Dress</h1> 
-                
-                <p class="text-3xl font-bold text-red-600 mb-6">$89.99 <span class="text-base font-normal text-gray-400 line-through ml-2">$120.00</span></p>
-
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-3">Product Description</h2>
-                    <p class="text-gray-600 mb-4 text-justify">
-                        Unleash your inner confidence with the "Black and White Pizzazz" dress. This stunning midi dress features a bold, geometric criss-cross pattern that guarantees all eyes are on you. Crafted from a comfortable, form-fitting Ponte knit fabric, it offers both structure and flattering stretch. Perfect for cocktail parties, gallery openings, or making a powerful statement in the office.
-                    </p>
-                    <ul class="list-none space-y-1 text-gray-700 text-sm">
-                        <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Premium Ponte Knit Fabric</li>
-                        <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Striking Geometric Design</li>
-                        <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sleeveless, Knee-Length Cut</li>
-                        <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Hidden Back Zipper Closure</li>
-                    </ul>
-                </div>
-
-                <!-- Size Selection Placeholder -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-3">Select Size</h2>
-                    <div class="flex space-x-3">
-                        <button class="size-btn bg-gray-200 text-gray-800 hover:bg-black hover:text-white transition duration-300 px-4 py-2 rounded-lg font-medium shadow-md">XS</button>
-                        <button class="size-btn bg-black text-white px-4 py-2 rounded-lg font-medium shadow-xl ring-2 ring-red-500">S</button>
-                        <button class="size-btn bg-gray-200 text-gray-800 hover:bg-black hover:text-white transition duration-300 px-4 py-2 rounded-lg font-medium shadow-md">M</button>
-                        <button class="size-btn bg-gray-200 text-gray-800 hover:bg-black hover:text-white transition duration-300 px-4 py-2 rounded-lg font-medium shadow-md">L</button>
-                        <button class="size-btn bg-gray-200 text-gray-800 hover:bg-black hover:text-white transition duration-300 px-4 py-2 rounded-lg font-medium shadow-md">XL</button>
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold mb-4">Select Size</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XS</button>
+                        <button class="size-btn px-6 py-3 bg-black text-white rounded-xl ring-4 ring-red-300">S</button>
+                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">M</button>
+                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">L</button>
+                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XL</button>
                     </div>
                 </div>
 
-                <!-- Call to Action Button -->
-                <button 
-                    onclick="showMessageBox('Product added to cart! Ready to checkout.')"
-                    class="w-full bg-red-600 text-white text-lg font-bold py-4 rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-[1.01] uppercase tracking-wider"
-                >
+                <button onclick="alert('Added to cart!')" 
+                        class="w-full bg-red-600 text-white text-2xl font-bold py-6 rounded-2xl hover:bg-red-700 transition transform hover:scale-105">
                     Add to Cart
                 </button>
             </div>
         </div>
-
-   <section class="mt-16">
-    <h2 class="text-3xl font-bold mb-8 text-center text-gray-700">You Might Also Love</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%206.jpg" alt="Green Dream Dress" class="w-full h-48 object-cover rounded-md mb-3">
-            <p class="font-semibold text-sm">Green Dream Dress</p>
-            <p class="text-red-500 font-bold text-sm mb-3">$20.00</p>
-            <button class="add-to-cart-btn bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600 transition" data-product-id="GDD001" data-price="20.00">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/orange%20dress.jpg" alt="Orange Elegance Dress" class="w-full h-48 object-cover rounded-md mb-3">
-            <p class="font-semibold text-sm">Orange Elegance</p>
-            <p class="text-red-500 font-bold text-sm">$24.99</p>
-            <button class="add-to-cart-btn bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600 transition" data-product-id="OED002" data-price="24.99">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-             <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dark%20green%20dress.jpg" alt="Green Dream Leather Dress" class="w-full h-48 object-cover rounded-md mb-3">
-            <p class="font-semibold text-sm">Green Dream</p>
-            <p class="text-red-500 font-bold text-sm">$24.99</p>
-            <button class="add-to-cart-btn bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600 transition" data-product-id="GLD003" data-price="24.99">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/white%20dress.jpg" alt="White Brilliance Dress" class="w-full h-48 object-cover rounded-md mb-3">
-            <p class="font-semibold text-sm">White Brilliance</p>
-            <p class="text-red-500 font-bold text-sm">$24.99</p>
-            <button class="add-to-cart-btn bg-pink-500 text-white text-xs px-3 py-1 rounded hover:bg-pink-600 transition" data-product-id="WBD004" data-price="24.99">
-                Add to Cart
-            </button>
-        </div>
-        
-    </div>
-</section>
-
-
-                <!-- Product Description -->
-                <div class="space-y-4 text-gray-600">
-                    <h2 class="text-xl font-semibold text-gray-800 pt-2">
-                        Product Description
-                    </h2>
-                    <p>
-                        The "White Brilliance" dress is the epitome of effortless elegance. Crafted from a premium, breathable cotton blend, it features a flattering A-line silhouette and delicate lace detailing at the hem and cuffs. Perfect for garden parties, brunches, or a sophisticated casual look.
-                    </p>
-                    <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Material: 70% Cotton, 30% Polyester</li>
-                        <li>Color: Crisp White</li>
-                        <li>Fit: True to size, flattering fit</li>
-                        <li>Care: Machine wash cold, hang dry</li>
-                    </ul>
-
-                    <h2 class="text-xl font-semibold text-gray-800 pt-4">
-                        Sizing & Availability
-                    </h2>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-200 text-gray-800">XS (Low Stock)</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">S (In Stock)</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">M (In Stock)</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-200 text-gray-800">L (Sold Out)</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">XL (Limited)</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-                    <img src="https://placehold.co/300x400/f5f5f5/555555?text=Dress+D" alt="Related Product D" class="w-full h-auto rounded mb-3">
-                    <p class="font-semibold text-sm">Striped Cropped Blazer</p>
-                    <p class="text-red-500 font-bold text-sm">$79.00</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-                <!-- Message Box for Feedback -->
-                <div id="message-box" class="mt-6 p-3 bg-green-100 text-green-700 rounded-lg hidden transition-opacity duration-300 opacity-0" role="alert">
-                    <!-- Message text will be inserted here by JavaScript -->
-                </div>
-
-            </div>
-        </div>
-    </main>                                                                                                                                                                       Is this code correct the photos are not fitting into the boxes that say Dress 1 Dress 2 it is for an html site on github
-        <!-- Footer -->
-        <footer class="p-6 bg-gray-50 text-center text-sm text-gray-500 border-t border-gray-100 mt-6">
-            &copy; 2025 Chic Threads. All Rights Reserved.
-        </footer>
-    </div>
-</body>
-</html>
-     <!-- Related Products Section (Simple Placeholder) -->
-
-        <section class="mt-16">
-
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-700">You Might Also Love</h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-                <!-- Related Product Card 1 -->
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-
-    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%206.jpg" alt="Green Dream Dress" class="product-image">
-
-    <p class="font-semibold text-sm">Red Power Jumpsuit</p>
-
-                    <p class="text-red-500 font-bold text-sm">$99.00</p>
-
-                    <div class="product-item" id="green-dream-dress">
-
-    <div class="product-details">
-
-        <h3 class="product-name">Green Dream Dress</h3>
-
-        <p class="product-price">$20.00</p>
-
-        <p class="product-description">A stylish, shamrock green business casual dress that is sleeveless with a pencil skirt bottom. Perfect for church or the office.</p>
-
-        
-
-        <button class="add-to-cart-btn" data-product-id="GDD001" data-price="20.00">
-
-            Add to Cart
-
-        </button>
-
-    </div>
-
-</div>
-
-                </div>
-
-                <!-- Related Product Card 2 -->
-
-                  <!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Leather Luxury Dresses: Orange Elegance - Chic Threads</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        body {
-
-            font-family: 'Inter', sans-serif;
-
-            background-color: #f7f7f7;
-
-        }
-
-    </style>
-
-</head>
-
-<body class="p-4 sm:p-8">
-
-    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
-
-        <!-- Header / Logo Area -->
-
-        <header class="p-6 border-b border-gray-100">
-
-            <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">Chic Threads</h1>
-
-            <p class="text-sm text-gray-500 mt-1">Shop the finest collection of business casual wear.</p>
-
-        </header>
-
-
-
-        <!-- Product Container -->
-
-        <div class="flex flex-col lg:flex-row p-6 md:p-10 gap-8">
-
-            
-
-            <!-- Product Image (Left side) -->
-
-            <div class="lg:w-1/2 flex-shrink-0">
-
-                <img 
-
-                    src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/orange%20dress.jpg" alt="Model wearing a burnt orange leather, sleeveless, pencil-skirt dress with matching jewelry." 
-
-                    class="w-full h-auto object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.01]"
-
-                    onerror="this.onerror=null; this.src='https://placehold.co/800x1200/F05454/FFFFFF?text=Image+Unavailable';"
-
-                >
-
-            </div>
-
-
-
-            <!-- Product Details (Right side) -->
-
-            <div class="lg:w-1/2 space-y-6">
-
-                <h2 class="text-4xl font-bold text-gray-900">Leather Luxury Dresses: Orange Elegance</h2>
-
-                
-
-                <!-- Price Section -->
-
-                <div class="flex items-baseline space-x-2">
-
-                    <span class="text-5xl font-extrabold text-red-600">$24.99</span>
-
-                    <span class="text-lg font-semibold text-gray-500 line-through">($99.99 MSRP)</span>
-
-                </div>
-
-                
-
-                <!-- Description -->
-
-                <div class="pt-4 border-t border-gray-100">
-
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Product Details</h3>
-
-                    <p class="text-gray-600 leading-relaxed">
-
-                        Step into sophistication with the 'Orange Elegance' leather dress. Crafted from premium, soft-touch faux leather in a rich burnt orange hue, this piece defines modern business casual. The sleeveless design and tailored pencil skirt silhouette offer a flattering, professional look that transitions seamlessly from the boardroom to evening events.
-
-                    </p>
-
-                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-1 ml-4">
-
-                        <li>Style: Business Casual / Church</li>
-
-                        <li>Material: High-Quality Faux Leather</li>
-
-                        <li>Features: Sleeveless, Crew Neck, Fitted Pencil Skirt</li>
-
-                        <li>Color: Burnt Orange</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- Call to Action -->
-
-                <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
-
-                    <button class="flex-1 px-6 py-3 bg-red-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-red-700 transition-colors duration-200 transform hover:scale-[1.02] active:scale-100">
-
-                        Add to Cart
-
-                    </button>
-
-                    <button class="flex-1 px-6 py-3 bg-gray-100 text-gray-800 font-bold text-lg rounded-full border border-gray-200 hover:bg-gray-200 transition-colors duration-200">
-
-                        Add to Wishlist
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- Size and Fit Information -->
-
-                <div class="pt-4 text-sm text-gray-500">
-
-                    <p class="font-semibold text-gray-700">Model Fit:</p>
-
-                    <p>Model is wearing size S. We recommend ordering your true size. Runs true to fit, slightly tailored.</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-
-                   <!DOCTYPE html>
-
-                    <img src="https://placehold.co/300x400/f5f5f5/555555?text=Dress+B" alt="Related Product B" class="w-full h-auto rounded mb-3">
-
-
-
-                    <p class="font-semibold text-sm">Sequin Evening Gown</p>
-
-                    <p class="text-red-500 font-bold text-sm">$149.00</p>
-
-                </div>
-
-                <!-- Related Product Card 3 -->
-
-               <div class="dress-option">
-
-    <h2>Leather Luxury Dresses: Green Dream</h2>
-
-               <!-- Product Details (Right side) -->
-
-            <div class="lg:w-1/2 space-y-6">
-
-                <h2 class="text-4xl font-bold text-gray-900">Leather Luxury Dresses: Green Dream</h2>
-
-                
-
-                <!-- Price Section -->
-
-                <div class="flex items-baseline space-x-2">
-
-                    <span class="text-5xl font-extrabold text-red-600">$24.99</span>
-
-                    <span class="text-lg font-semibold text-gray-500 line-through">($99.99 MSRP)</span>
-
-                </div>
-
-                
-
-                <!-- Description -->
-
-                <div class="pt-4 border-t border-gray-100">
-
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Product Details</h3>
-
-                    <p class="text-gray-600 leading-relaxed">
-
-                        Step into sophistication with the 'Green Dream' leather dress. Crafted from premium, soft-touch faux leather in a rich forest green hue, this piece defines modern business casual. The sleeveless design and tailored pencil skirt silhouette offer a flattering, professional look that transitions seamlessly from the boardroom to evening events.
-
-                    </p>
-
-                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-1 ml-4">
-
-                        <li>Style: Business Casual / Church</li>
-
-                        <li>Material: High-Quality Faux Leather</li>
-
-                        <li>Features: Sleeveless, Crew Neck, Fitted Pencil Skirt</li>
-
-                        <li>Color: Forest Green</li>
-
-                    </ul>
-
-                </div>
-
-    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dark%20green%20dress.jpg" alt="Green Dream Leather Dress">
-
-    <p class="price">$24.99</p>
-
-</div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-
-                    <img src="https://placehold.co/300x400/f5f5f5/555555?text=Dress+C" alt="Related Product C" class="w-full h-auto rounded mb-3">
-
-                    <p class="font-semibold text-sm">The Office Pencil Skirt</p>
-
-                    <p class="text-red-500 font-bold text-sm">$55.00</p>
-
-                </div>
-
-                <!-- Related Product Card 4 -->
-
-                    <!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>White Brilliance | ChicThreads Shop</title>
-
-    <!-- Load Tailwind CSS -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-
-        /* Custom styles to ensure the font is Inter and smooth transitions */
-
-        body {
-
-            font-family: 'Inter', sans-serif;
-
-            background-color: #f7f9fb;
-
-        }
-
-        /* Custom scrollbar for aesthetics */
-
-        ::-webkit-scrollbar {
-
-            width: 8px;
-
-        }
-
-        ::-webkit-scrollbar-thumb {
-
-            background: #cbd5e1;
-
-            border-radius: 10px;
-
-        }
-
-    </style>
-
-</head>
-
-<body class="min-h-screen p-4 sm:p-8">
-
-
-
-    <!-- Header / Navigation Bar -->
-
-    <header class="bg-white shadow-lg rounded-xl mb-8 p-4 flex justify-between items-center max-w-6xl mx-auto">
-
-        <div class="text-2xl font-bold text-gray-800 tracking-wider">
-
-            Chic<span class="text-pink-500">Threads</span>
-
-        </div>
-
-        <nav class="hidden sm:flex space-x-6 text-gray-600 font-medium">
-
-            <a href="#" class="hover:text-pink-500 transition duration-150">Shop</a>
-
-            <a href="#" class="hover:text-pink-500 transition duration-150">Blog</a>
-
-            <a href="#" class="hover:text-pink-500 transition duration-150">About</a>
-
-            <a href="#" class="hover:text-pink-500 transition duration-150">Cart (0)</a>
-
-        </nav>
-
-        <button class="sm:hidden text-gray-600 hover:text-pink-500">
-
-            <!-- Simple Menu Icon (Hamburger) -->
-
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-
-        </button>
-
-    </header>
-
-
-
-    <!-- Product Detail Container -->
-
-    <main class="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
-
-        <div class="md:flex">
-
-            <!-- Image Section -->
-
-            <div class="md:w-1/2 p-6 md:p-8 bg-gray-50 flex items-center justify-center">
-
-                <!-- Placeholder Image for the White Dress -->
-
-                <img
-
-
-
-                     <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/white%20dress.jpg" alt="White Brilliance Dress" class="product-image">
-
-                    src="https://placehold.co/600x800/f0f0f0/888888?text=White+Brilliance+Dress"
-
-                    alt="Elegant White Brilliance Dress"
-
-                    class="w-full h-auto rounded-lg object-cover shadow-xl transition-transform duration-500 hover:scale-[1.02]"
-
-                    onerror="this.onerror=null; this.src='https://placehold.co/600x800/f0f0f0/888888?text=Image+Unavailable'"
-
-                >
-
-            </div>
-
-
-
-            <!-- Content/Details Section -->
-
-            <div class="md:w-1/2 p-6 md:p-10 lg:p-12 space-y-6">
-
-                <p class="text-sm font-semibold text-pink-500 uppercase tracking-widest">
-
-                    Shop / New Arrivals
-
-                </p>
-
-
-
-                <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-
-                    White Brilliance
-
-                </h1>
-
-
-
-                <!-- Price and Buy Button -->
-
-                <div class="flex items-center justify-between border-t border-b border-gray-200 py-4">
-
-                    <p class="text-3xl font-bold text-gray-800">
-
-                        $24.99
-
-                    </p>
-
-                    <button
-
-                        onclick="addToCart()"
-
-                        class="bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-pink-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300 active:bg-pink-800"
-
-                    >
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- Product Description -->
-
-                <div class="space-y-4 text-gray-600">
-
-                    <h2 class="text-xl font-semibold text-gray-800 pt-2">
-
-                        Product Description
-
-                    </h2>
-
-                    <p>
-
-                        The "White Brilliance" dress is the epitome of effortless elegance. Crafted from a premium, breathable cotton blend, it features a flattering A-line silhouette and delicate lace detailing at the hem and cuffs. Perfect for garden parties, brunches, or a sophisticated casual look.
-
-                    </p>
-
-                    <ul class="list-disc list-inside space-y-1 pl-4">
-
-                        <li>Material: 70% Cotton, 30% Polyester</li>
-
-                        <li>Color: Crisp White</li>
-
-                        <li>Fit: True to size, flattering fit</li>
-
-                        <li>Care: Machine wash cold, hang dry</li>
-
-                    </ul>
-
-
-
-                    <h2 class="text-xl font-semibold text-gray-800 pt-4">
-
-                        Sizing & Availability
-
-                    </h2>
-
-                    <div class="flex flex-wrap gap-3">
-
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-200 text-gray-800">XS (Low Stock)</span>
-
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">S (In Stock)</span>
-
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">M (In Stock)</span>
-
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-200 text-gray-800">L (Sold Out)</span>
-
-                        <span class="px-3 py-1 text-sm rounded-full bg-pink-100 text-pink-700 font-medium">XL (Limited)</span>
-
+    </section>
+
+    <!-- You Might Also Love -->
+    <section class="max-w-7xl mx-auto px-6 mt-20">
+        <h2 class="text-5xl font-bold text-center mb-12 text-gray-800">You Might Also Love</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Green Dream -->
+            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%206.jpg" alt="Green Dream">
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-xl">Green Dream Dress</h3>
+                    <p class="text-red-600 font-bold text-2xl my-2">$20.00</p>
+                    <p class="text-sm text-gray-600 mb-4">Sleeveless pencil skirt — office chic</p>
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
                     </div>
-
                 </div>
-
-
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 text-center hover:shadow-xl transition">
-
-                    <img src="https://placehold.co/300x400/f5f5f5/555555?text=Dress+D" alt="Related Product D" class="w-full h-auto rounded mb-3">
-
-                    <p class="font-semibold text-sm">Striped Cropped Blazer</p>
-
-                    <p class="text-red-500 font-bold text-sm">$79.00</p>
-
-                </div>
-
             </div>
-
-        </section>
-
-    </main>
-
-
-
-                <!-- Message Box for Feedback -->
-
-                <div id="message-box" class="mt-6 p-3 bg-green-100 text-green-700 rounded-lg hidden transition-opacity duration-300 opacity-0" role="alert">
-
-                    <!-- Message text will be inserted here by JavaScript -->
-
+            <!-- Orange Elegance -->
+            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/orange%20dress.jpg" alt="Orange Elegance">
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-xl">Orange Elegance</h3>
+                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                    <p class="text-sm text-gray-600 mb-4">Burnt orange faux leather</p>
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
+                    </div>
                 </div>
-
-
-
             </div>
-
+            <!-- Forest Green -->
+            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dark%20green%20dress.jpg" alt="Forest Green Dream">
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-xl">Forest Green Dream</h3>
+                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                    <p class="text-sm text-gray-600 mb-4">Deep green faux leather elegance</p>
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
+                    </div>
+                </div>
+            </div>
+            <!-- White Brilliance -->
+            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/white%20dress.jpg" alt="White Brilliance">
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-xl">White Brilliance</h3>
+                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                    <p class="text-sm text-gray-600 mb-4">Crisp cotton A-line with lace trim</p>
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </main> Is this code correct the photos are not fitting into the boxes that say Dress 1 Dress 2 it is for an html site on github
+    <!-- CHRISTMAS ELEGANCE COLLECTION -->
+    <section class="mt-32 bg-gradient-to-b from-pink-50 to-red-50 py-20" id="christmas">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-6xl font-bold text-red-700 mb-4" style="font-family: 'Times New Roman', serif;">Christmas Elegance</h2>
+            <p class="text-2xl italic text-gray-700 mb-16">A one-stop shop to shine this holiday season</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                <!-- Look 1 -->
+                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Regality" class="w-full">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 1: Red Regality</h3>
+                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
+                        <p class="text-2xl font-bold my-4">$49.99</p>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Look 2 -->
+                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%20dress%208.jpg" alt="Green Sparkle">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 2: Green Sparkle</h3>
+                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
+                        <p class="text-2xl font-bold my-4">$49.99</p>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Look 3 -->
+                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/golden%20dress%202.jpg" alt="Golden Glitter">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 3: Golden Glitter</h3>
+                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Sparkle</p>
+                        <p class="text-2xl font-bold my-4">$49.99</p>
+                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Look 7 - SALE -->
+                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 7: Red Wonder</h3>
+                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
+                        <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
+                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="max-w-6xl mx-auto mt-8 text-center text-gray-500 text-sm p-4 border-t border-gray-200">
-        &copy; 2025 ChicThreads. All rights reserved. | <a href="#" class="hover:text-pink-500">Privacy Policy</a>
+    <footer class="bg-gray-900 text-white text-center py-16 mt-20">
+        <p class="text-2xl">&copy; 2025 Chic Chroma • All Rights Reserved</p>
+        <p class="mt-4 text-lg">Made with love for bold, beautiful style</p>
     </footer>
 
-    <!-- JavaScript for Add to Cart functionality -->
     <script>
-        function addToCart() {
-            const price = 24.99;
-            const title = "White Brilliance";
-            const messageBox = document.getElementById('message-box');
-
-            // 1. Update Cart (Simulated)
-            // In a real application, this would involve sending data to a server or state management.
-            console.log(`Added 1 x ${title} ($${price}) to cart.`);
-
-            // 2. Show Confirmation Message (Custom Message Box instead of alert())
-            messageBox.textContent = `${title} has been added to your cart for $${price}!`;
-            messageBox.classList.remove('hidden', 'opacity-0', 'bg-red-100', 'text-red-700');
-            messageBox.classList.add('opacity-100', 'bg-green-100', 'text-green-700');
-
-            // 3. Auto-hide the message after 4 seconds
-            setTimeout(() => {
-                messageBox.classList.remove('opacity-100');
-                messageBox.classList.add('opacity-0');
-                // Wait for transition before hiding completely
-                setTimeout(() => {
-                    messageBox.classList.add('hidden');
-                }, 300);
-            }, 4000);
-        }
-    </script>
-
-</body>
-</html>
-    
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16 p-8">
-        <div class="max-w-6xl mx-auto text-center text-sm">
-            &copy; 2025 Chic Threads. All rights reserved. | <a href="#" class="underline hover:text-red-400">Privacy Policy</a>
-        </div>
-    </footer>
-
-    <!-- Custom Modal/Message Box (Replaces alert()) -->
-    <div id="messageBox" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
-        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full text-center">
-            <p id="messageText" class="text-lg font-semibold text-gray-800 mb-4"></p>
-            <button onclick="document.getElementById('messageBox').classList.add('hidden')" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">Close</button>
-        </div>
-    </div>
-    
-    <script>
-        // Function to show the custom message box
-        function showMessageBox(message) {
-            document.getElementById('messageText').textContent = message;
-            document.getElementById('messageBox').classList.remove('hidden');
-            document.getElementById('messageBox').classList.add('flex');
-        }
-
-        // Add size selection logic (for interactivity)
-        document.querySelectorAll('.size-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                // Remove active styling from all
-                document.querySelectorAll('.size-btn').forEach(btn => {
-                    btn.classList.remove('bg-black', 'text-white', 'shadow-xl', 'ring-2', 'ring-red-500');
-                    btn.classList.add('bg-gray-200', 'text-gray-800', 'shadow-md');
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(b => {
+                    b.classList.remove('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+                    b.classList.add('border-2', 'border-gray-300');
                 });
-
-                // Add active styling to clicked button
-                e.target.classList.remove('bg-gray-200', 'text-gray-800', 'shadow-md');
-                e.target.classList.add('bg-black', 'text-white', 'shadow-xl', 'ring-2', 'ring-red-500');
-
-                showMessageBox(`Selected size: ${e.target.textContent}`);
+                this.classList.add('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+                this.classList.remove('border-2', 'border-gray-300');
             });
         });
     </script>
 </body>
 </html>
-
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Elegance Collection | Chic Chroma</title>
-    <style>
-        /* Shared Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fcfcfc;
-            color: #333;
-        }
-
-        /* Festive Header */
-        .header {
-            background: linear-gradient(135deg, #d42424, #ff69b4); /* Red to Pink gradient */
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 3.5em;
-            font-family: 'Times New Roman', serif;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .tagline {
-            margin-top: 15px;
-            font-size: 1.2em;
-            font-style: italic;
-            font-weight: 300;
-            background-color: rgba(255, 255, 255, 0.2);
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-        }
-
-        /* Navigation */
-        .nav-bar {
-            background-color: #0f5132; /* Christmas Green */
-            text-align: center;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 25px;
-            margin: 0 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background-color: #d4a017; /* Metallic Gold */
-            color: #fff;
-            border-radius: 4px;
-        }
-
-        /* Product Grid */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        /* Product Card Styling */
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .card-image {
-            height: 400px;
-            width: 100%;
-            object-fit: cover;
-            border-bottom: 4px solid #d4a017; /* Gold border */
-        }
-
-        .card-details {
-            padding: 25px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .look-title {
-            color: #d42424;
-            font-size: 1.5em;
-            margin: 0 0 5px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .collection-name {
-            color: #888;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 1.4em;
-            color: #333;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .buy-btn {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 12px 0;
-            width: 100%;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        .buy-btn:hover {
-            background-color: #d42424; /* Red on hover */
-        }
-
-        /* Sale Badge for Look 7 */
-        .sale-badge {
-            background-color: #d42424;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            vertical-align: middle;
-            margin-left: 10px;
-        }
-
-        .footer {
-            background-color: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-top: 5px solid #d4a017;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <h1>Christmas Elegance</h1>
-        <div class="tagline">A one stop shop to look beautiful for the Christmas season and every occasion.</div>
-    </div>
-
-    <nav class="nav-bar">
-        <a href="index.html">Home</a>
-        <a href="christmas_collection.html">Christmas Collection</a>
-        <a href="index.html#blog">Blog</a>
-        <a href="index.html#shop">Shop</a>
-    </nav>
-
-    <div class="container">
-        <div class="product-grid">
-
-            <!-- Look 1 -->
-            <div class="product-card">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Regality Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 1: Red Regality</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 2 -->
-            <div class="product-card">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%20dress%208.jpg" alt="Green Sparkle Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 2: Green Sparkle</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 3 -->
-            <div class="product-card">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/golden%20dress%202.jpg" alt="Golden Glitter Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 3: Golden Glitter</h3>
-                        <div class="collection-name">Christmas Sparkle</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 4 -->
-            <div class="product-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/4884543661487858416" alt="Silver Solace Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 4: Silver Solace</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 5 -->
-            <div class="product-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/16010957576601966328" alt="Red Lace Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 5: Red Lace</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 6 -->
-            <div class="product-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/17703683945724202435" alt="Black Lace Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 6: Black Lace</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price">$49.99</div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Look 7 -->
-            <div class="product-card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/18188693848014801206" alt="Red Wonder Dress" class="card-image">
-                <div class="card-details">
-                    <div>
-                        <h3 class="look-title">Look 7: Red Wonder</h3>
-                        <div class="collection-name">Christmas Elegance</div>
-                        <div class="price" style="color: #d42424;">$19.99 <span class="sale-badge">SALE</span></div>
-                    </div>
-                    <button class="buy-btn">Add to Cart</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 Chic Chroma - Christmas Elegance Collection. All Rights Reserved.</p>
-    </div>
-
-</body>
-</html>
-
-        <nav class="nav-bar">
-    <a href="#home">HOME</a>
-    <a href="#blog">BLOG</a>
-    <a href="christmas_collection.html">🎄 CHRISTMAS COLLECTION</a>
-    <a href="#shop">SHOP</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
-</nav>
-   
