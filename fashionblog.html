@@ -4,60 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chic Chroma: A Colorful Fashion Blog & Shop</title>
-
-    <!-- Tailwind + Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&family=Times+New+Roman&display=swap" rel="stylesheet">
+   
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f4f4f9; color: #333; }
+    h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+    .header { background: linear-gradient(135deg, #ff69b4, #ff1493); }
+    .nav-bar { background-color: #4CAF50; }
+    .nav-bar a:hover { background-color: #FFD700; color: #333 !important; }
     
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f4f9; color: #333; }
-        h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
-        .header { background: linear-gradient(135deg, #ff69b4, #ff1493); }
-        .nav-bar { background-color: #4CAF50; }
-        .nav-bar a:hover { background-color: #FFD700; color: #333 !important; }
-        
-        /* Hero Product Image */
-        .img-container { aspect-ratio: 4/5; overflow: hidden; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .img-container img:hover { transform: scale(1.05); }
+    .img-container { aspect-ratio: 4/5; overflow: hidden; }
+    .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .img-container img:hover { transform: scale(1.05); }
 
-        /* Related & Christmas Cards */
-        .related-card img, .christmas-card img { 
-            height: 320px; object-fit: cover; 
+    .related-card img, .christmas-card img {
+        height: 320px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: height 0.5s ease;
+    }
+    .related-card:hover, .christmas-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+    }
+    .christmas-card img { border-bottom: 6px solid #d4a017; }
+    .sale-badge {
+        background-color: #d42424; color: white; padding: 4px 10px; border-radius: 4px;
+        font-size: 0.8em; margin-left: 8px;
+    }
+
+    /* EXPANDED CARD – 2×2, no layout shift, works on ALL positions */
+    .card-expanded {
+        grid-column: span 2 !important;
+        grid-row: span 2 !important;
+        z-index: 50;
+        position: relative;
+        transform: translateY(-16px);
+        box-shadow: 0 30px 70px rgba(0,0,0,0.35) !important;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .card-expanded img {
+        height: 680px !important;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .expanded-title {
+        font-size: 3.8rem !important;
+        line-height: 1.1;
+        font-weight: 900 !important;
+    }
+    .long-desc { transition: opacity 0.5s ease; }
+
+    @media (max-width: 768px) {
+        .card-expanded {
+            grid-column: 1 / -1 !important;
+            transform: translateY(-16px) !important;
         }
-        .related-card:hover, .christmas-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-        }
-        .christmas-card img {
-            border-bottom: 6px solid #d4a017;
-        }
-        .sale-badge {
-            background-color: #d42424;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-left: 8px;
-        }
-    </style>
-    <!-- Lucide icons for visual appeal -->
+        .card-expanded img { height: 580px !important; }
+        .expanded-title { font-size: 3rem !important; }
+    }
+</style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
-
 <!-- CHIC CHROMA HEADER – sticky #1 -->
 <header class="bg-gradient-to-r from-pink-600 to-purple-700 shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-        <!-- Logo/Title -->
         <div class="flex items-center space-x-2">
             <i data-lucide="sparkles" class="text-pink-300 w-7 h-7"></i>
             <span class="text-2xl font-extrabold text-white tracking-tight">
                 CHIC <span class="text-pink-300">CHROMA</span>
             </span>
         </div>
-      
-        <!-- Navigation Links -->
         <nav class="hidden md:flex space-x-8">
             <a href="fashionblog.html" class="text-white/90 hover:text-pink-200 transition duration-150 font-medium">Fashion Blog</a>
             <a href="Food%20Blog.html" class="text-white/90 hover:text-pink-200 transition duration-150 font-medium">Food Blog</a>
@@ -66,15 +89,13 @@
                 <span>Home Page</span>
             </a>
         </nav>
-       
-        <!-- Mobile Menu Button -->
         <button class="md:hidden p-2 text-white/90 hover:text-pink-200 rounded-lg transition duration-150">
             <i data-lucide="menu" class="w-7 h-7"></i>
         </button>
     </div>
 </header>
 
-<!-- GREEN MENU BAR – sticky #2, sticks right under the header -->
+<!-- GREEN MENU BAR -->
 <nav class="nav-bar text-white py-5 sticky top-16 z-40 shadow-md bg-[#4CAF50]">
     <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-lg font-bold">
         <a href="#home">HOME</a>
@@ -86,241 +107,325 @@
     </div>
 </nav>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-3 gap-10">
+<!-- Main Content (unchanged) -->
+<div class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-3 gap-10">
+    <section class="lg:col-span-2 space-y-12" id="blog">
+        <article class="bg-white rounded-2xl shadow-xl p-10">
+            <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Fave Fall Look</h2>
+            <p class="text-sm text-gray-500 my-4">Posted on November 10, 2025</p>
+            <p class="text-lg leading-relaxed">The fall time is here — burnt orange tops, leopard prints, booties and tall boots are back! This week’s look: <strong>copper sheen top + beige wide-leg pants + black oversized blazer</strong>. Pair with golden jewelry and pointy toe wedges for a chic work-ready vibe!</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-xl p-10">
+            <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Look of the Week</h2>
+            <p class="text-sm text-gray-500 my-4">Posted on November 3, 2025</p>
+            <p class="text-lg leading-relaxed">Bright sleeveless colorful vest + dress pants + black cami. Finished with brown pointed toe sandals and a bold red bob wig. Perfect for standing out at work or events!</p>
+        </article>
+    </section>
+    <aside class="space-y-8">
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold text-pink-600 border-b-2 border-green-500 pb-3">Featured Categories</h3>
+            <ul class="mt-6 space-y-4 text-lg">
+                <li><a href="#" class="hover:text-pink-600 font-semibold">Blazers & Outerwear</a></li>
+                <li><a href="#" class="hover:text-pink-600 font-semibold">Trousers & Skirts</a></li>
+                <li><a href="#" class="hover:text-pink-600 font-semibold">Vibrant Tops</a></li>
+                <li><a href="#" class="hover:text-pink-600 font-semibold">Shoes & Boots</a></li>
+                <li><a href="#" class="hover:text-pink-600 font-semibold">Jewelry & Accessories</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
 
-        <!-- Blog Posts -->
-        <section class="lg:col-span-2 space-y-12" id="blog">
-            <article class="bg-white rounded-2xl shadow-xl p-10">
-                <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Fave Fall Look</h2>
-                <p class="text-sm text-gray-500 my-4">Posted on November 10, 2025</p>
-                <p class="text-lg leading-relaxed">The fall time is here — burnt orange tops, leopard prints, booties and tall boots are back! This week’s look: <strong>copper sheen top + beige wide-leg pants + black oversized blazer</strong>. Pair with golden jewelry and pointy toe wedges for a chic work-ready vibe!</p>
-            </article>
-
-            <article class="bg-white rounded-2xl shadow-xl p-10">
-                <h2 class="text-4xl font-bold text-pink-600 border-b-4 border-dashed border-yellow-400 pb-4">Look of the Week</h2>
-                <p class="text-sm text-gray-500 my-4">Posted on November 3, 2025</p>
-                <p class="text-lg leading-relaxed">Bright sleeveless colorful vest + dress pants + black cami. Finished with brown pointed toe sandals and a bold red bob wig. Perfect for standing out at work or events!</p>
-            </article>
-        </section>
-
-        <!-- Sidebar -->
-        <aside class="space-y-8">
-            <div class="bg-white p-8 rounded-2xl shadow-lg">
-                <h3 class="text-2xl font-bold text-pink-600 border-b-2 border-green-500 pb-3">Featured Categories</h3>
-                <ul class="mt-6 space-y-4 text-lg">
-                    <li><a href="#" class="hover:text-pink-600 font-semibold">Blazers & Outerwear</a></li>
-                    <li><a href="#" class="hover:text-pink-600 font-semibold">Trousers & Skirts</a></li>
-                    <li><a href="#" class="hover:text-pink-600 font-semibold">Vibrant Tops</a></li>
-                    <li><a href="#" class="hover:text-pink-600 font-semibold">Shoes & Boots</a></li>
-                    <li><a href="#" class="hover:text-pink-600 font-semibold">Jewelry & Accessories</a></li>
-                </ul>
+<!-- FEATURED HERO (unchanged) -->
+<section class="max-w-7xl mx-auto px-6 mt-20" id="featured">
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden md:flex">
+        <div class="md:w-1/2 img-container bg-gray-100">
+            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dress.jpg" alt="Black and White Pizzazz Midi Dress">
+        </div>
+        <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">New Arrival • Limited Edition</p>
+            <h1 class="text-5xl lg:text-6xl font-extrabold mt-4 mb-6">Black and White Pizzazz Midi Dress</h1>
+            <p class="text-5xl font-bold text-red-600 mb-6">$89.99 <span class="text-2xl line-through text-gray-400">$120.00</span></p>
+            <p class="text-gray-700 text-lg mb-8">Bold geometric pattern on premium Ponte knit. Form-fitting, sleeveless, knee-length — perfect for making a statement.</p>
+            <div class="mb-10">
+                <h3 class="text-xl font-bold mb-4">Select Size</h3>
+                <div class="flex flex-wrap gap-4">
+                    <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XS</button>
+                    <button class="size-btn px-6 py-3 bg-black text-white rounded-xl ring-4 ring-red-300">S</button>
+                    <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">M</button>
+                    <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">L</button>
+                    <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XL</button>
+                </div>
             </div>
-        </aside>
+            <button onclick="alert('Added to cart!')" class="w-full bg-red-600 text-white text-2xl font-bold py-6 rounded-2xl hover:bg-red-700 transition transform hover:scale-105">
+                Add to Cart
+            </button>
+        </div>
     </div>
+</section>
 
-    <!-- FEATURED HERO: Black and White Pizzazz -->
-    <section class="max-w-7xl mx-auto px-6 mt-20" id="featured">
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden md:flex">
-            <div class="md:w-1/2 img-container bg-gray-100">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dress.jpg"
-                     alt="Black and White Pizzazz Midi Dress">
-            </div>
-            <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">New Arrival • Limited Edition</p>
-                <h1 class="text-5xl lg:text-6xl font-extrabold mt-4 mb-6">Black and White Pizzazz Midi Dress</h1>
-                <p class="text-5xl font-bold text-red-600 mb-6">$89.99 <span class="text-2xl line-through text-gray-400">$120.00</span></p>
-                <p class="text-gray-700 text-lg mb-8">Bold geometric pattern on premium Ponte knit. Form-fitting, sleeveless, knee-length — perfect for making a statement.</p>
-                
-                <div class="mb-10">
-                    <h3 class="text-xl font-bold mb-4">Select Size</h3>
-                    <div class="flex flex-wrap gap-4">
-                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XS</button>
-                        <button class="size-btn px-6 py-3 bg-black text-white rounded-xl ring-4 ring-red-300">S</button>
-                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">M</button>
-                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">L</button>
-                        <button class="size-btn px-6 py-3 border-2 border-gray-300 rounded-xl hover:border-black transition">XL</button>
-                    </div>
-                </div>
-
-                <button onclick="alert('Added to cart!')" 
-                        class="w-full bg-red-600 text-white text-2xl font-bold py-6 rounded-2xl hover:bg-red-700 transition transform hover:scale-105">
-                    Add to Cart
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- You Might Also Love -->
-    <section class="max-w-7xl mx-auto px-6 mt-20">
-        <h2 class="text-5xl font-bold text-center mb-12 text-gray-800">You Might Also Love</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <!-- Green Dream -->
-            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%206.jpg" alt="Green Dream">
-                <div class="p-6 text-center">
-                    <h3 class="font-bold text-xl">Green Dream Dress</h3>
-                    <p class="text-red-600 font-bold text-2xl my-2">$20.00</p>
-                    <p class="text-sm text-gray-600 mb-4">Sleeveless pencil skirt — office chic</p>
-                    <div class="flex gap-2">
-                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
-                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Orange Elegance -->
-            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/orange%20dress.jpg" alt="Orange Elegance">
-                <div class="p-6 text-center">
-                    <h3 class="font-bold text-xl">Orange Elegance</h3>
-                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
-                    <p class="text-sm text-gray-600 mb-4">Burnt orange faux leather</p>
-                    <div class="flex gap-2">
-                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
-                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Forest Green -->
-            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dark%20green%20dress.jpg" alt="Forest Green Dream">
-                <div class="p-6 text-center">
-                    <h3 class="font-bold text-xl">Forest Green Dream</h3>
-                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
-                    <p class="text-sm text-gray-600 mb-4">Deep green faux leather elegance</p>
-                    <div class="flex gap-2">
-                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
-                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
-                    </div>
-                </div>
-            </div>
-            <!-- White Brilliance -->
-            <div class="related-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/white%20dress.jpg" alt="White Brilliance">
-                <div class="p-6 text-center">
-                    <h3 class="font-bold text-xl">White Brilliance</h3>
-                    <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
-                    <p class="text-sm text-gray-600 mb-4">Crisp cotton A-line with lace trim</p>
-                    <div class="flex gap-2">
-                        <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
-                        <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
-                    </div>
+<!-- You Might Also Love -->
+<section class="max-w-7xl mx-auto px-6 mt-20">
+    <h2 class="text-5xl font-bold text-center mb-12 text-gray-800">You Might Also Love</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- Green Dream -->
+        <div class="related-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%206.jpg" alt="Green Dream">
+            <div class="p-6 text-center">
+                <h3 class="font-bold text-xl transition-all">Green Dream Dress</h3>
+                <p class="text-red-600 font-bold text-2xl my-2">$20.00</p>
+                <p class="text-sm text-gray-600 mb-4 short-desc">Sleeveless pencil skirt — office chic</p>
+                <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                    This emerald stunner hugs every curve with quiet confidence. Crafted from luxe stretch ponte, it moves with you from desk to dinner. The rich jewel tone flatters all complexions and pairs effortlessly with gold accessories — a timeless investment you'll reach for season after season.
+                </p>
+                <div class="flex gap-2 mt-6">
+                    <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                    <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- CHRISTMAS ELEGANCE COLLECTION -->
-    <section class="mt-32 bg-gradient-to-b from-pink-50 to-red-50 py-20" id="christmas">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-6xl font-bold text-red-700 mb-4" style="font-family: 'Times New Roman', serif;">Christmas Elegance</h2>
-            <p class="text-2xl italic text-gray-700 mb-16">A one-stop shop to shine this holiday season</p>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-                <!-- Look 1 -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Regality" class="w-full">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 1: Red Regality</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
-                        <p class="text-2xl font-bold my-4">$49.99</p>
-                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
-                    </div>
+        <!-- Orange Elegance -->
+        <div class="related-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/orange%20dress.jpg" alt="Orange Elegance">
+            <div class="p-6 text-center">
+                <h3 class="font-bold text-xl transition-all">Orange Elegance</h3>
+                <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                <p class="text-sm text-gray-600 mb-4 short-desc">Burnt orange faux leather</p>
+                <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                    Turn heads in this fiery faux leather midi that screams autumn luxury. The warm terracotta shade is universally flattering and looks incredible against denim, black, or cream. Structured yet soft, with a subtle sheen that catches the light just right.
+                </p>
+                <div class="flex gap-2 mt-6">
+                    <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                    <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
                 </div>
-
-                <!-- Look 2 -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%20dress%208.jpg" alt="Green Sparkle">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 2: Green Sparkle</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
-                        <p class="text-2xl font-bold my-4">$49.99</p>
-                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Look 3 -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/golden%20dress%202.jpg" alt="Golden Glitter">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 3: Golden Glitter</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Sparkle</p>
-                        <p class="text-2xl font-bold my-4">$49.99</p>
-                        <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Look 7 - SALE -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 7: Red Wonder</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
-                        <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
-                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
-                    </div>
-                </div>
-
-                <!-- 1 - SALE -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look A: Card A</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">TExt A</p>
-                        <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
-                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
-                    </div>
-                </div>
-
-
-                <!-- 2 - SALE -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look B: Card B</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Text B</p>
-                        <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
-                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
-                    </div>
-                </div>
-
-                <!-- 3 - SALE -->
-                <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
-                    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look C: Card C</h3>
-                        <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Text C</p>
-                        <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
-                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
-                    </div>
-                </div>
-                
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-16 mt-20">
-        <p class="text-2xl">&copy; 2025 Chic Chroma • All Rights Reserved</p>
-        <p class="mt-4 text-lg">Made with love for bold, beautiful style</p>
-    </footer>
+        <!-- Forest Green -->
+        <div class="related-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/dark%20green%20dress.jpg" alt="Forest Green Dream">
+            <div class="p-6 text-center">
+                <h3 class="font-bold text-xl transition-all">Forest Green Dream</h3>
+                <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                <p class="text-sm text-gray-600 mb-4 short-desc">Deep green faux leather elegance</p>
+                <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                    Rich hunter green faux leather that feels expensive and looks even better. The deep, moody tone is perfect for holiday parties and winter events. Subtle seaming creates a flattering silhouette while the stretch ensures comfort all night long.
+                </p>
+                <div class="flex gap-2 mt-6">
+                    <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                    <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
-    
-    <script>
-        document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.size-btn').forEach(b => {
-                    b.classList.remove('bg-black', 'text-white', 'ring-4', 'ring-red-300');
-                    b.classList.add('border-2', 'border-gray-300');
-                });
-                this.classList.add('bg-black', 'text-white', 'ring-4', 'ring-red-300');
-                this.classList.remove('border-2', 'border-gray-300');
+        <!-- White Brilliance -->
+        <div class="related-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+            <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/white%20dress.jpg" alt="White Brilliance">
+            <div class="p-6 text-center">
+                <h3 class="font-bold text-xl transition-all">White Brilliance</h3>
+                <p class="text-red-600 font-bold text-2xl my-2">$24.99</p>
+                <p class="text-sm text-gray-600 mb-4 short-desc">Crisp cotton A-line with lace trim</p>
+                <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                    Pure white cotton poplin with delicate scalloped lace trim — the definition of effortless elegance. The structured A-line flatters every body type and transitions beautifully from brunch to garden parties. Pair with bold red lips for instant impact.
+                </p>
+                <div class="flex gap-2 mt-6">
+                    <button class="flex-1 bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 text-sm font-bold">Add to Cart</button>
+                    <button class="flex-1 border border-pink-600 text-pink-600 py-3 rounded-xl hover:bg-pink-50 text-sm font-bold">Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CHRISTMAS ELEGANCE COLLECTION -->
+<section class="mt-32 bg-gradient-to-b from-pink-50 to-red-50 py-20" id="christmas">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-6xl font-bold text-red-700 mb-4" style="font-family: 'Times New Roman', serif;">Christmas Elegance</h2>
+        <p class="text-2xl italic text-gray-700 mb-16">A one-stop shop to shine this holiday season</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            <!-- Look 1 -->
+            <div class="christmas-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Regality" class="w-full">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700 transition-all" style="font-family: 'Times New Roman', serif;">Look 1: Red Regality</h3>
+                    <p class="text-gray-600 text-sm  uppercase tracking-widest mt-2 short-desc">Christmas Elegance</p>
+                    <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                        A timeless crimson velvet midi that embodies holiday royalty. The rich red hue glows under Christmas lights, while the soft velvet caresses the skin. Off-the-shoulder neckline adds drama without effort — perfect for Christmas Eve dinner.
+                    </p>
+                    <p class="text-2xl font-bold my-4">$49.99</p>
+                    <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Look 2 -->
+            <div class="christmas-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/green%20dress%208.jpg" alt="Green Sparkle">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700 transition-all" style="font-family: 'Times New Roman', serif;">Look 2: Green Sparkle</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2 short-desc">Christmas Elegance</p>
+                    <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                        Emerald sequins catch every twinkle of light — made for dancing under the mistletoe. Fully lined for comfort with just enough stretch to enjoy every holiday treat guilt-free. The subtle mermaid silhouette flatters curves beautifully.
+                    </p>
+                    <p class="text-2xl font-bold my-4">$49.99</p>
+                    <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Look 3 -->
+            <div class="christmas-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/golden%20dress%202.jpg" alt="Golden Glitter">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700 transition-all" style="font-family: 'Times New Roman', serif;">Look 3: Golden Glitter</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2 short-desc">Christmas Sparkle</p>
+                    <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0">
+                        Liquid gold lamé that shimmers with every step. This bias-cut beauty drapes like a dream and reflects light like champagne bubbles. Ideal for ringing in the New Year — you’ll feel like pure magic.
+                    </p>
+                    <p class="text-2xl  font-bold my-4">$49.99</p>
+                    <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- All other Christmas cards (unchanged except added classes for future-proofing) -->
+            <div class="christmas-card cursor-pointer bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500" data-expanded="false">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look 7: Red
+                    Wonder</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Christmas Elegance</p>
+                    <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
+                </div>
+            </div>
+            <!-- Repeat the same pattern for the remaining placeholder cards if you want them expandable too -->
+            <!-- (I've left them as-is to preserve your exact content) -->
+            <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look A: Card A</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">TExt A</p>
+                    <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
+                </div>
+            </div>
+            <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look B: Card B</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Text B</p>
+                    <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
+                </div>
+            </div>
+            <div class="christmas-card bg-white rounded-2xl shadow-xl overflow-hidden transition">
+                <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/red%20dress.jpg" alt="Red Wonder">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-red-700" style="font-family: 'Times New Roman', serif;">Look C: Card C</h3>
+                    <p class="text-gray-600 text-sm uppercase tracking-widest mt-2">Text C</p>
+                    <p class="text-2xl font-bold my-4 text-red-600">$19.99 <span class="sale-badge">SALE</span></p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-bold">Add to Cart Now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white text-center py-16 mt-20">
+    <p class="text-2xl">© 2025 Chic Chroma • All Rights Reserved</p>
+    <p class="mt-4 text-lg">Made with love for bold, beautiful style</p>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Size buttons (unchanged)
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+                b.classList.add('border-2', 'border-gray-300');
             });
+            this.classList.add('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+            this.classList.remove('border-2', 'border-gray-300');
         });
-    </script>
+    });
+
+    let currentExpanded = null;
+    let originalNextSibling = null; // to restore order when collapsing
+
+    const collapse = () => {
+        if (!currentExpanded) return;
+
+        // Restore original DOM order if we moved a sibling
+        if (originalNextSibling) {
+            currentExpanded.parentNode.insertBefore(currentExpanded, originalNextSibling);
+            originalNextSibling = null;
+        }
+
+        currentExpanded.classList.remove('card-expanded');
+        currentExpanded.querySelector('h3')?.classList.remove('expanded-title');
+        currentExpanded.querySelectorAll('.long-desc').forEach(d => {
+            d.classList.add('hidden');
+            d.style.opacity = '0';
+        });
+        currentExpanded.querySelectorAll('.short-desc').forEach(d => d.classList.remove('hidden'));
+        currentExpanded.querySelector('img').style.height = '';
+        
+        currentExpanded = null;
+    };
+
+    document.querySelectorAll('.related-card, .christmas-card').forEach((card, index) => {
+        card.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            if (currentExpanded === card) {
+                collapse();
+                return;
+            }
+
+            // Collapse any previously expanded card
+            if (currentExpanded) collapse();
+
+            const parent = card.parentNode;
+            const isRightSide = (index + 1) % 4 === 3 || (index + 1) % 4 === 0; // 3rd or 4th column
+
+            // Only reorder for right-side cards (columns 3 & 4)
+            if (isRightSide && card.previousElementSibling) {
+                const prevCard = card.previousElementSibling;
+                originalNextSibling = card.nextSibling; // remember where to put it back
+
+                // Move the previous card AFTER the current one
+                parent.insertBefore(prevCard, card.nextSibling);
+            }
+
+            // Now expand
+            card.classList.add('card-expanded');
+            card.querySelector('h3')?.classList.add('expanded-title');
+            const long = card.querySelector('.long-desc');
+            if (long) {
+                long.classList.remove('hidden');
+                setTimeout(() => long.style.opacity = '1', 100);
+            }
+            card.querySelector('.short-desc')?.classList.add('hidden');
+            card.querySelector('img').style.height = '680px';
+
+            currentExpanded = card;
+        });
+
+        // Optional: collapse on mouse leave (your original behavior)
+        card.addEventListener('mouseleave', () => {
+            if (currentExpanded === card) {
+                setTimeout(collapse, 100);
+            }
+        });
+    });
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+        if (currentExpanded && !currentExpanded.contains(e.target)) {
+            collapse();
+        }
+    });
+</script>
 </body>
 </html>
