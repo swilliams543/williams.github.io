@@ -41,11 +41,8 @@
             margin-left: 8px;
         }
     </style>
-<!-- Lucide Icons -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>
-  lucide.createIcons();
-</script>
+    <!-- Lucide icons for visual appeal -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -309,6 +306,11 @@
         <p class="mt-4 text-lg">Made with love for bold, beautiful style</p>
     </footer>
 
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+    
     <script>
         document.querySelectorAll('.size-btn').forEach(btn => {
             btn.addEventListener('click', function() {
