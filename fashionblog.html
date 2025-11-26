@@ -1,65 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chic Chroma: A Colorful Fashion Blog & Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chic Chroma: A Colorful Fashion Blog & Shop</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&family=Times+New+Roman&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f4f9; color: #333; }
-        h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
-        .header { background: linear-gradient(135deg, #ff69b4, #ff1493); }
-        .nav-bar { background-color: #4CAF50; }
-        .nav-bar a:hover { background-color: #FFD700; color: #333 !important; }
-        
-        /* Hero Product Image */
-        .img-container { aspect-ratio: 4/5; overflow: hidden; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .img-container img:hover { transform: scale(1.05); }
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&family=Times+New+Roman&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f9; color: #333; }
+        h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+        .header { background: linear-gradient(135deg, #ff69b4, #ff1493); }
+        .nav-bar { background-color: #4CAF50; }
+        .nav-bar a:hover { background-color: #FFD700; color: #333 !important; }
+        
+        /* Hero Product Image */
+        .img-container { aspect-ratio: 4/5; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .img-container img:hover { transform: scale(1.05); }
 
-        /* Related & Christmas Cards */
-        .related-card img, .christmas-card img { 
-            height: 320px; object-fit: cover; 
-        }
-        .related-card:hover, .christmas-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-        }
-        .christmas-card img {
-            border-bottom: 6px solid #d4a017;
-        }
-        .sale-badge {
-            background-color: #d42424;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-left: 8px;
-        }
-    
-        /* Make sure the second sticky bar starts exactly where the first one ends */
-        @media (min-width: 768px) {
-            .nav-bar.sticky {
-                top: 64px; /* 64px = h-16 (header height) */
-            }
+        /* Related & Christmas Cards */
+        .related-card img, .christmas-card img { 
+            height: 320px; object-fit: cover; 
         }
-        
-        /* Optional: smoother feel when both are stuck */
-        header.shadow-2xl {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.25) !important;
+        .related-card:hover, .christmas-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
         }
-        
-    </style>
-        <script src="https://unpkg.com/lucide@latest"></script>
+        .christmas-card img {
+            border-bottom: 6px solid #d4a017;
+        }
+        .sale-badge {
+            background-color: #d42424;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 8px;
+        }
+    </style>
+    <!-- Lucide icons for visual appeal -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
-<!-- Chic Chroma Header – now with stronger shadow -->
-<header class="bg-gradient-to-r from-pink-600 to-purple-700 
-                shadow-2xl sticky top-0 z-50">
+<!-- CHIC CHROMA HEADER – sticky #1 -->
+<header class="bg-gradient-to-r from-pink-600 to-purple-700 shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         <!-- Logo/Title -->
         <div class="flex items-center space-x-2">
@@ -68,7 +56,7 @@
                 CHIC <span class="text-pink-300">CHROMA</span>
             </span>
         </div>
-       
+      
         <!-- Navigation Links -->
         <nav class="hidden md:flex space-x-8">
             <a href="fashionblog.html" class="text-white/90 hover:text-pink-200 transition duration-150 font-medium">Fashion Blog</a>
@@ -78,7 +66,7 @@
                 <span>GitHub Repo</span>
             </a>
         </nav>
-        
+       
         <!-- Mobile Menu Button -->
         <button class="md:hidden p-2 text-white/90 hover:text-pink-200 rounded-lg transition duration-150">
             <i data-lucide="menu" class="w-7 h-7"></i>
@@ -86,9 +74,8 @@
     </div>
 </header>
 
-<!-- Second Menu Bar – sticks right under the header -->
-<nav class="nav-bar text-white py-5 sticky top-16 z-40 
-            shadow-lg bg-[#4CAF50]">
+<!-- GREEN MENU BAR – sticky #2, sticks right under the header -->
+<nav class="nav-bar text-white py-5 sticky top-16 z-40 shadow-md bg-[#4CAF50]">
     <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 text-lg font-bold">
         <a href="#home">HOME</a>
         <a href="#blog">BLOG</a>
