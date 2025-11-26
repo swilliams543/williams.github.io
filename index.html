@@ -14,34 +14,55 @@
     color: #333;
     line-height: 1.7;
   }
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 40px 20px;
+
+  /* Artistic Header Bar */
+  .header-bar {
+    background: linear-gradient(90deg, #FF1493, #FF69B4, #4CAF50, #8BC34A);
+    padding: 30px 0 40px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
   }
-  h1 {
-    font-size: 4.5em;
-    margin: 0.3em 0;
-    background: linear-gradient(90deg, #FF1493, #FF69B4, #4CAF50);
+  .header-bar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,0 50,10 T100,10 L100,20 L0,20 Z" fill="rgba(255,255,255,0.15)"/></svg>') bottom/100% 30px repeat-x;
+    pointer-events: none;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2em;            /* Reduced from 4.5em → fits perfectly on 1080p */
+    margin: 0;
+    background: linear-gradient(90deg, #ffffff, #fff8f8, #f8fff8, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 4px 10px rgba(255,20,147,0.15);
-  }
-  .tagline {
-    font-size: 1.5em;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 2.5em;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    letter-spacing: 2px;
   }
 
-  /* Split Navigation */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 20px 50px;     /* Less top padding since header is separate */
+  }
+
+  .tagline {
+    font-size: 1.45em;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 2.2em;
+    text-align: center;
+  }
+
+  /* Navigation */
   .nav-buttons {
     display: flex;
     gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 40px 0 60px;
+    margin: 30px 0 50px;
   }
   .nav-btn {
     padding: 20px 45px;
@@ -51,44 +72,28 @@
     border-radius: 60px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
     min-width: 260px;
     text-align: center;
   }
-  .fashion-btn {
-    background: linear-gradient(135deg, #FF1493, #FF69B4);
-    color: white;
-  }
-  .fashion-btn::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, #ff1493, #ff8cc9);
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-  .food-btn {
-    background: linear-gradient(135deg, #66BB6A, #4CAF50);
-    color: white;
-  }
+  .fashion-btn { background: linear-gradient(135deg, #FF1493, #FF69B4); color: white; }
+  .food-btn    { background: linear-gradient(135deg, #66BB6A, #4CAF50); color: white; }
   .nav-btn:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.25);
   }
   .fashion-btn:hover { background: linear-gradient(135deg, #C71585, #FF1493); }
-  .food-btn:hover   { background: linear-gradient(135deg, #388E3C, #2E7D32); }
+  .food-btn:hover    { background: linear-gradient(135deg, #388E3C, #2E7D32); }
 
-  /* Hero images side-by-side on larger screens */
+  /* Hero Gallery */
   .hero-gallery {
     display: flex;
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin: 40px 0;
   }
   .hero-img {
-    max-width: 360px;
+    max-width: 380px;           /* Slightly smaller to keep everything above the fold */
     width: 100%;
     border-radius: 20px;
     border: 8px solid #fff;
@@ -97,103 +102,100 @@
   }
   .hero-img:hover { transform: scale(1.03); }
 
+  /* Sections */
   .section {
     background: white;
-    padding: 35px;
+    padding: 32px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    margin: 40px auto;
+    margin: 35px auto;
     max-width: 800px;
     position: relative;
     overflow: hidden;
   }
   .section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
+    content: ""; position: absolute;
+    top: 0; left: 0; right: 0; height: 6px;
   }
   .fashion-section::before { background: linear-gradient(90deg, #FF1493, #FF69B4); }
-  .food-section::before   { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
-
+  .food-section::before    { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
   .section h3 {
-    font-size: 2em;
+    font-size: 1.9em;
     margin-top: 0;
   }
   .fashion-section h3 { color: #FF1493; }
-  .food-section h3   { color: #4CAF50; }
+  .food-section h3    { color: #4CAF50; }
 
   .footer {
-    margin-top: 80px;
+    margin-top: 70px;
     color: #777;
     font-size: 1.1em;
   }
-  .footer a {
-    color: #FF69B4;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  .footer a { color: #FF69B4; text-decoration: none; font-weight: bold; }
   .footer a:hover { text-decoration: underline; }
 
-  /* Small decorative icons */
   .icon { font-size: 1.8em; margin: 0 10px; }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="container">
-
-  <h1>My Style World</h1>
-
-  <p class="tagline">
-    Where bold fashion meets delicious food<br>
-    <span class="icon">👗✨🍽️</span>
-  </p>
-
-  <!-- Navigation -->
-  <div class="nav-buttons">
-    <a href="https://swilliams543.github.io/williams.github.io/fashionblog.html" class="nav-btn fashion-btn">
-      ✨ Fashion Blog ✨
-    </a>
-    <a href="https://swilliams543.github.io/williams.github.io/Food%20Blog.html" class="nav-btn food-btn">
-      🍴 Food Blog 🍴
-    </a>
+  <!-- Artistic Header -->
+  <div class="header-bar">
+    <h1 class="header-title">My Style World</h1>
   </div>
 
-  <!-- Hero Gallery -->
-  <div class="hero-gallery">
-    <img src="https://github.com/user-attachments/assets/e53d79a8-cdfa-4a8d-90f5-8bb4ad881727"
-         alt="Vibrant Summer Chic Look" class="hero-img">
-    <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/Screenshot_20250904-092323%7E2.png"
-         alt="Nubia's Song" class="hero-img">
-  </div>
+  <div class="container">
 
-  <!-- Fashion Teaser -->
-  <div class="section fashion-section">
-    <h3>This Week’s Look – Vibrant Summer Chic</h3>
-    <p>
-      <strong>Long sleeveless colorful vest</strong> + black dress pants + brown pointed-toe sandals<br>
-      Topped with a fiery red bob that turns heads 🔥<br><br>
-      Perfect for the office, brunch, or stealing the show wherever you go.
+    <p class="tagline">
+      Where bold fashion meets delicious food<br>
+      <span class="icon">Dresses · Sparkles · Plates</span>
     </p>
-  </div>
 
-  <!-- Food Teaser -->
-  <div class="section food-section">
-    <h3>Food Blog – Dropping Very Soon…</h3>
-    <p>
-      Mouth-watering recipes • Stunning plating • Kitchen fashion tips<br>
-      Because your plate deserves to be as stylish as your outfit 🍽️✨
-    </p>
-  </div>
+    <!-- Navigation -->
+    <div class="nav-buttons">
+      <a href="https://swilliams543.github.io/williams.github.io/fashionblog.html" class="nav-btn fashion-btn">
+        Sparkles Fashion Blog Sparkles
+      </a>
+      <a href="https://swilliams543.github.io/williams.github.io/Food%20Blog.html" class="nav-btn food-btn">
+        Fork Food Blog Fork
+      </a>
+    </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    Made with <3 + a sprinkle of glitter by <a href="https://github.com/swilliams543">swilliams543</a> · 2025
-  </div>
+    <!-- Hero Gallery -->
+    <div class="hero-gallery">
+      <img src="https://github.com/user-attachments/assets/e53d79a8-cdfa-4a8d-90f5-8bb4ad881727"
+           alt="Vibrant Summer Chic Look" class="hero-img">
+      <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/Screenshot_20250904-092323%7E2.png"
+           alt="Delicious food plating" class="hero-img">
+    </div>
 
-</div>
+    <!-- Fashion Teaser -->
+    <div class="section fashion-section">
+      <h3>This Week’s Look – Vibrant Summer Chic</h3>
+      <p>
+        <strong>Long sleeveless colorful vest</strong> + black dress pants + brown pointed-toe sandals<br>
+        Topped with a fiery red bob that turns heads<br><br>
+        Perfect for the office, brunch, or stealing the show wherever you go.
+      </p>
+    </div>
+
+    <!-- Food Teaser -->
+    <div class="section food-section">
+      <h3>Food Blog – Dropping Very Soon…</h3>
+      <p>
+        Mouth-watering recipes • Stunning plating • Kitchen fashion tips<br>
+        Because your plate deserves to be as stylish as your outfit · Sparkles
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Made with Heart + a sprinkle of glitter by <a href="https://github.com/swilliams543">swilliams543</a> · 2025
+    </div>
+
+  </div>
 </body>
 </html>
 </div>
