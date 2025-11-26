@@ -136,7 +136,7 @@
   .tagline .icon { font-size: 2em; }
 
   .nav-buttons { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin: 40px 0 60px; }
-  .nav-btn { padding: 22px 50px; font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 600; border-radius: 70px; color: white; text-decoration: none; box-shadow: 0 12px 35px rgba(0,0,0,0.2); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+  .nav-btn { display: flex; align-items: center; gap: 12px; padding: 22px 50px; font-family: 'Poppins', sans-serif; font-size: 1.5em; font-weight: 600; border-radius: 70px; color: white; text-decoration: none; box-shadow: 0 12px 35px rgba(0,0,0,0.2); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
   .nav-btn::before { content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3)); transition: 0.7s; }
   .nav-btn:hover::before { left: 100%; }
   .fashion-btn { background: linear-gradient(135deg, var(--pink), var(--hotpink)); }
@@ -198,10 +198,10 @@
 
     <div class="nav-buttons">
       <a href="https://swilliams543.github.io/williams.github.io/fashionblog.html" class="nav-btn fashion-btn">
-        ✨ Fashion Blog ✨
+        <i data-lucide="shirt" class="text-white w-7 h-7"></i> Fashion Blog <i data-lucide="handbag" class="text-white w-7 h-7"></i>
       </a>
       <a href="https://swilliams543.github.io/williams.github.io/Food%20Blog.html" class="nav-btn food-btn">
-        🍴 Food Blog 🍴
+        <i data-lucide="utensils" class="text-white w-7 h-7"></i> Food Blog <i data-lucide="wine" class="text-white w-7 h-7"></i>
       </a>
     </div>
 
