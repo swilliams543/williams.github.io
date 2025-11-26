@@ -5,12 +5,13 @@
 <br/>
 
 <!-- Navigation Buttons at the very top -->
+
 <a href="https://swilliams543.github.io/williams.github.io/fashionblog.html">
-  <img src="https://img.shields.io/badge/✨ Fashion Blog-HotPink?style=for-the-badge&logo=instagram&logoColor=white" alt="Fashion Blog">
+  <img src="https://img.shields.io/badge/✨%20Fashion%20Blog-FF69B4?style=for-the-badge&logo=instagram&logoColor=white" alt="Fashion Blog" />
 </a>
 &emsp;
 <a href="https://swilliams543.github.io/williams.github.io/Food%20Blog.html">
-  <img src="https://img.shields.io/badge/🍴 Food Blog-4CAF50?style=for-the-badge&logo=food&logoColor=white" alt="Food Blog">
+  <img src="https://img.shields.io/badge/🍴%20Food%20Blog-4CAF50?style=for-the-badge&logo=food&logoColor=white" alt="Food Blog" />
 </a>
 
 <br/><br/>
