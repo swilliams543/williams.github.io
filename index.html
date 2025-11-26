@@ -5,143 +5,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Style World</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    font-family: 'Georgia', serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #fff1f8 50%, #f1f8f1 50%);
-    color: #333;
-    line-height: 1.7;
+  :root {
+    --pink: #FF1493;
+    --hotpink: #FF69B4;
+    --green: #4CAF50;
+    --lime: #8BC34A;
   }
 
-  /* Artistic Header Bar */
+  body {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, #fff1f8 50%, #f1f8f1 50%);
+    color: #333;
+    overflow-x: hidden;
+  }
+
+  /* Header with parallax effect */
   .header-bar {
-    background: linear-gradient(90deg, #FF1493, #FF69B4, #4CAF50, #8BC34A);
-    padding: 30px 0 40px;
-    margin-bottom: 30px;
+    background: linear-gradient(90deg, var(--pink), var(--hotpink), var(--green), var(--lime));
+    padding: 60px 0 80px;
+    text-align: center;
     position: relative;
     overflow: hidden;
+    background-attachment: fixed;
   }
   .header-bar::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,0 50,10 T100,10 L100,20 L0,20 Z" fill="rgba(255,255,255,0.15)"/></svg>') bottom/100% 30px repeat-x;
-    pointer-events: none;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.2), transparent 50%);
   }
   .header-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4.2em;            /* Reduced from 4.5em → fits perfectly on 1080p */
+    font-size: 5.2em;
     margin: 0;
-    background: linear-gradient(90deg, #ffffff, #fff8f8, #f8fff8, #ffffff);
+    background: linear-gradient(90deg, #ffffff, #fff0f5, #f0fff0, #ffffff);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    letter-spacing: 2px;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    letter-spacing: 4px;
+    animation: glow 4s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+    to   { filter: drop-shadow(0 0 20px rgba(255,255,255,0.8)); }
   }
 
   .container {
-    max-width: 960px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px 20px 50px;     /* Less top padding since header is separate */
+    padding: 20px;
+    position: relative;
+    z-index: 2;
   }
 
   .tagline {
-    font-size: 1.45em;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 2.2em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    color: #444;
+    margin: 10px 0 40px;
     text-align: center;
   }
+  .tagline .icon { font-size: 2em; }
 
-  /* Navigation */
+  /* Navigation – now with shimmer */
   .nav-buttons {
     display: flex;
     gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 30px 0 50px;
+    margin: 40px 0 60px;
   }
   .nav-btn {
-    padding: 20px 45px;
-    font-size: 1.4em;
-    font-weight: bold;
+    padding: 22px 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    border-radius: 70px;
+    color: white;
     text-decoration: none;
-    border-radius: 60px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: all 0.4s ease;
-    min-width: 260px;
-    text-align: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
   }
-  .fashion-btn { background: linear-gradient(135deg, #FF1493, #FF69B4); color: white; }
-  .food-btn    { background: linear-gradient(135deg, #66BB6A, #4CAF50); color: white; }
+  .nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+    transition: 0.7s;
+  }
+  .nav-btn:hover::before { left: 100%; }
+  .fashion-btn { background: linear-gradient(135deg, var(--pink), var(--hotpink)); }
+  .food-btn    { background: linear-gradient(135deg, #66BB6A, var(--green)); }
   .nav-btn:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    transform: translateY(-10px) scale(1.08);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
   }
-  .fashion-btn:hover { background: linear-gradient(135deg, #C71585, #FF1493); }
-  .food-btn:hover    { background: linear-gradient(135deg, #388E3C, #2E7D32); }
 
   /* Hero Gallery */
   .hero-gallery {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 40px 0;
+    margin: 50px 0;
   }
   .hero-img {
-    max-width: 380px;           /* Slightly smaller to keep everything above the fold */
+    max-width: 400px;
     width: 100%;
-    border-radius: 20px;
-    border: 8px solid #fff;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    transition: transform 0.3s;
+    border-radius: 24px;
+    border: 10px solid #fff;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    transition: all 0.4s;
   }
-  .hero-img:hover { transform: scale(1.03); }
+  .hero-img:hover {
+    transform: translateY(-15px) scale(1.04);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+  }
 
   /* Sections */
   .section {
     background: white;
-    padding: 32px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    margin: 35px auto;
-    max-width: 800px;
+    padding: 40px;
+    border-radius: 24px;
+    margin: 40px auto;
+    max-width: 820px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
   }
   .section::before {
-    content: ""; position: absolute;
-    top: 0; left: 0; right: 0; height: 6px;
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--pink), var(--hotpink));
   }
-  .fashion-section::before { background: linear-gradient(90deg, #FF1493, #FF69B4); }
-  .food-section::before    { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
+  .food-section::before { background: linear-gradient(90deg, var(--green), var(--lime)); }
+
   .section h3 {
-    font-size: 1.9em;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
     margin-top: 0;
   }
-  .fashion-section h3 { color: #FF1493; }
-  .food-section h3    { color: #4CAF50; }
+  .fashion-section h3 { color: var(--pink); }
+  .food-section h3    { color: var(--green); }
+
+  /* Countdown for Food Blog */
+  .countdown {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em;
+    color: var(--green);
+    font-weight: bold;
+    margin-top: 15px;
+  }
 
   .footer {
-    margin-top: 70px;
-    color: #777;
-    font-size: 1.1em;
+    margin: 90px 0 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #666;
   }
-  .footer a { color: #FF69B4; text-decoration: none; font-weight: bold; }
-  .footer a:hover { text-decoration: underline; }
-
-  .icon { font-size: 1.8em; margin: 0 10px; }
+  .footer a { color: var(--pink); font-weight: bold; }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Artistic Header -->
+  <!-- Header -->
   <div class="header-bar">
     <h1 class="header-title">My Style World</h1>
   </div>
@@ -153,46 +192,40 @@
       <span class="icon">Dresses · Sparkles · Plates</span>
     </p>
 
-    <!-- Navigation -->
     <div class="nav-buttons">
       <a href="https://swilliams543.github.io/williams.github.io/fashionblog.html" class="nav-btn fashion-btn">
         ✨ Fashion Blog ✨
       </a>
       <a href="https://swilliams543.github.io/williams.github.io/Food%20Blog.html" class="nav-btn food-btn">
-        🍴 Food Blog 🍴
+        🍴 Food Blog Coming Soon 🍴
       </a>
     </div>
 
-    <!-- Hero Gallery -->
     <div class="hero-gallery">
-      <img src="https://github.com/user-attachments/assets/e53d79a8-cdfa-4a8d-90f5-8bb4ad881727"
-           alt="Vibrant Summer Chic Look" class="hero-img">
-      <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/Screenshot_20250904-092323%7E2.png"
-           alt="Delicious food plating" class="hero-img">
+      <img src="https://github.com/user-attachments/assets/e53d79a8-cdfa-4a8d-90f5-8bb4ad881727" alt="Vibrant Summer Chic" class="hero-img">
+      <img src="https://raw.githubusercontent.com/swilliams543/williams.github.io/refs/heads/main/Screenshot_20250904-092323%7E2.png" alt="Food teaser" class="hero-img">
     </div>
 
-    <!-- Fashion Teaser -->
     <div class="section fashion-section">
-      <h3>This Week’s Look – Vibrant Summer Chic</h3>
+      <h3>This Week’s Look — Vibrant Summer Chic</h3>
       <p>
-        <strong>Long sleeveless colorful vest</strong> + black dress pants + brown pointed-toe sandals<br>
-        Topped with a fiery red bob that turns heads<br><br>
-        Perfect for the office, brunch, or stealing the show wherever you go.
+        <strong>Long sleeveless colorful vest</strong> + tailored black pants + brown pointed-toe sandals<br>
+        Finished with a fiery red bob that demands attention<br><br>
+        Work, brunch, or turning every sidewalk into your runway.
       </p>
     </div>
 
-    <!-- Food Teaser -->
     <div class="section food-section">
-      <h3>Food Blog – Dropping Very Soon…</h3>
+      <h3>Food Blog — Launching Very Soon…</h3>
       <p>
-        Mouth-watering recipes • Stunning plating • Kitchen fashion tips<br>
-        Because your plate deserves to be as stylish as your outfit · Sparkles
+        Decadent recipes • Artful plating • Kitchen outfit ideas<br>
+        Your plate deserves couture too<br><br>
+        <div class="countdown">Launching in December 2025 — stay tuned!</div>
       </p>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-      Made with Heart + a sprinkle of glitter by <a href="https://github.com/swilliams543">swilliams543</a> · 2025
+      Handcrafted with Heart + endless glitter by <a href="https://github.com/swilliams543">swilliams543</a> · 2025
     </div>
 
   </div>
