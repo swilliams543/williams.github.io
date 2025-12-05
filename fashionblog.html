@@ -405,3 +405,105 @@
                     <p class="text-2xl font-bold my-4 text-red-600">$24.99 <span class="sale-badge">SALE</span></p>
                     <p class="hidden long-desc text-gray-700 text-base leading-relaxed mt-6 opacity-0"></p>
                     <button class="w-full bg
+        <!-- Footer -->
+<footer class="bg-gray-900 text-white text-center py-16 mt-20">
+    <p class="text-2xl">© 2025 Chic Chroma • All Rights Reserved</p>
+    <p class="mt-4 text-lg">Made with love for bold, beautiful style</p>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Size buttons (unchanged)
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+                b.classList.add('border-2', 'border-gray-300');
+            });
+            this.classList.add('bg-black', 'text-white', 'ring-4', 'ring-red-300');
+            this.classList.remove('border-2', 'border-gray-300');
+        });
+    });
+
+    let currentExpanded = null;
+    let originalNextSibling = null; // to restore order when collapsing
+
+    const collapse = () => {
+        if (!currentExpanded) return;
+
+        // Restore original DOM order if we moved a sibling
+        if (originalNextSibling) {
+            currentExpanded.parentNode.insertBefore(currentExpanded, originalNextSibling);
+            originalNextSibling = null;
+        }
+
+        currentExpanded.classList.remove('card-expanded');
+        currentExpanded.querySelector('h3')?.classList.remove('expanded-title');
+        currentExpanded.querySelectorAll('.long-desc').forEach(d => {
+            d.classList.add('hidden');
+            d.style.opacity = '0';
+        });
+        currentExpanded.querySelectorAll('.short-desc').forEach(d => d.classList.remove('hidden'));
+        currentExpanded.querySelector('img').style.height = '';
+        
+        currentExpanded = null;
+    };
+
+    document.querySelectorAll('.related-card, .christmas-card').forEach((card, index) => {
+        card.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            if (currentExpanded === card) {
+                collapse();
+                return;
+            }
+
+            // Collapse any previously expanded card
+            if (currentExpanded) collapse();
+
+            const parent = card.parentNode;
+            const isRightSide = (index + 1) % 4 === 3 || (index + 1) % 4 === 0; // 3rd or 4th column
+
+            // Only reorder for right-side cards (columns 3 & 4)
+            if (isRightSide && card.previousElementSibling) {
+                const prevCard = card.previousElementSibling;
+                originalNextSibling = card.nextSibling; // remember where to put it back
+
+                // Move the previous card AFTER the current one
+                parent.insertBefore(prevCard, card.nextSibling);
+            }
+
+            // Now expand
+            card.classList.add('card-expanded');
+            card.querySelector('h3')?.classList.add('expanded-title');
+            const long = card.querySelector('.long-desc');
+            if (long) {
+                long.classList.remove('hidden');
+                setTimeout(() => long.style.opacity = '1', 100);
+            }
+            card.querySelector('.short-desc')?.classList.add('hidden');
+            card.querySelector('img').style.height = '680px';
+
+            currentExpanded = card;
+        });
+
+        // Optional: collapse on mouse leave (your original behavior)
+        card.addEventListener('mouseleave', () => {
+            if (currentExpanded === card) {
+                setTimeout(collapse, 100);
+            }
+        });
+    });
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+        if (currentExpanded && !currentExpanded.contains(e.target)) {
+            collapse();
+        }
+    });
+</script>
+</body>
+</html>
+
+
