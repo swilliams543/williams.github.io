@@ -18,7 +18,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="text-gray-800">
-
     <!-- Header & Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-[999]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -26,11 +25,10 @@
             <div class="flex items-center space-x-3">
                 <i data-lucide="package" class="w-8 h-8 text-orange-amber-600"></i>
                 <span class="text-2xl font-extrabold tracking-tight">
-                    <span class="text-gray-800">SandBox</span> 
+                    <span class="text-gray-800">SandBox</span>
                     <span class="text-amber-600">Test Bed</span>
                 </span>
             </div>
-
             <!-- Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#" class="text-amber-700 font-semibold hover:text-amber-900 transition">SandBox</a>
@@ -41,14 +39,12 @@
                     <span>Home Page</span>
                 </a>
             </nav>
-
             <!-- Mobile menu button -->
             <button class="md:hidden p-2 text-gray-600 hover:text-amber-600 rounded-lg">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </header>
-
     <!-- Main Content Area – Your SandBox Starts Here -->
     <main class="min-h-screen">
         <section class="py-20 max-w-7xl mx-auto px-6 text-center">
@@ -56,14 +52,139 @@
                 Welcome to the <span class="text-amber-600">SandBox Test Bed</span>
             </h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                This page is completely cleared and ready for your experiments, prototypes, or wild ideas.
+                This page is completely cleared and ready for your experiments, prototypes, or wild ideas. Dive into HTML basics inspired by W3Schools tutorials—try editing, breaking, and rebuilding!
             </p>
-            <div class="mt-12 text-left bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-10 min-h-96">
-                <p class="text-gray-500">← Start adding your HTML / Tailwind / JS right here</p>
+        </section>
+
+        <!-- Exercise 1: Basic HTML Structure – Headings and Paragraphs -->
+        <!-- Challenge: Experiment with different heading levels (h1-h6) and add your own paragraphs. Try changing the Tailwind classes for colors/sizes. What happens if you nest a <p> inside an <h2>? -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 1: Headings & Paragraphs</h2>
+                <p class="text-gray-700 mb-4">This is a <strong>paragraph</strong> with some <em>emphasis</em>. HTML basics let you structure content easily!</p>
+                <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-2">Subheading for Testing</h3>
+                <p class="text-gray-600">Add more text here. <small>This is small text</small> – try <mark>highlighting</mark> or <del>deleting</del> parts.</p>
+                <!-- TODO: Try adding a blockquote or more semantic elements like <cite> for quotes. -->
+            </div>
+        </section>
+
+        <!-- Exercise 2: Lists (Ordered & Unordered) -->
+        <!-- Challenge: Create your own grocery list or to-do items. Switch between <ol> and <ul>. Style with Tailwind (e.g., list-disc to list-decimal). What if you add nested lists? -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 2: Lists</h2>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Unordered List (Dream Vacation Spots)</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6 pl-4">
+                    <li>Paris, France – Eiffel Tower at sunset</li>
+                    <li>Tokyo, Japan – Neon lights and ramen</li>
+                    <li>Beach in Bali – Endless waves</li>
+                    <!-- TODO: Add a nested <ul> inside one <li> for sub-ideas! -->
+                </ul>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Ordered List (Recipe Steps)</h3>
+                <ol class="list-decimal list-inside text-gray-700 space-y-1 pl-4">
+                    <li>Gather ingredients (flour, eggs, sugar)</li>
+                    <li>Mix wet and dry separately</li>
+                    <li>Bake at 350°F for 25 mins</li>
+                    <li>Enjoy your cookies!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Exercise 3: Links & Images -->
+        <!-- Challenge: Add your own image (use a placeholder URL) and link to a favorite site. Test hover effects with Tailwind. What if the link opens in a new tab (target="_blank")? -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 3: Links & Images</h2>
+                <p class="text-gray-700 mb-4">Click the link below to visit <a href="https://www.w3schools.com" target="_blank" class="text-amber-600 hover:text-amber-800 underline font-medium transition">W3Schools</a> for more tutorials.</p>
+                <img src="https://placehold.co/400x200/amber/gray?text=Your+Test+Image" alt="Placeholder image for experimentation" class="mx-auto rounded-lg shadow-lg mb-4 w-full max-w-md">
+                <p class="text-gray-600 text-center">Above is a placeholder image – replace the src with your own URL!</p>
+                <!-- TODO: Add multiple images in a flex layout (e.g., flex flex-wrap gap-4). -->
+            </div>
+        </section>
+
+        <!-- Exercise 4: Tables -->
+        <!-- Challenge: Build a simple data table, like a weekly schedule. Add borders or colors with Tailwind. Try making it responsive (e.g., overflow-x-auto). -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8 overflow-x-auto">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 4: Tables</h2>
+                <table class="min-w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr class="bg-amber-100">
+                            <th class="border border-gray-300 px-4 py-2 text-left">Day</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left">Activity</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-2">Monday</td>
+                            <td class="border border-gray-300 px-4 py-2">Code HTML</td>
+                            <td class="border border-gray-300 px-4 py-2">9 AM</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="border border-gray-300 px-4 py-2">Tuesday</td>
+                            <td class="border border-gray-300 px-4 py-2">Test Forms</td>
+                            <td class="border border-gray-300 px-4 py-2">10 AM</td>
+                        </tr>
+                        <!-- TODO: Add more rows or a footer row with totals. Experiment with colspan! -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Exercise 5: Forms -->
+        <!-- Challenge: Create a feedback form with different input types (text, email, checkbox). Add a submit button. Test with Tailwind for styling inputs. -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 5: Forms</h2>
+                <form class="space-y-4 max-w-md mx-auto">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2" checked>
+                            <span class="text-sm text-gray-700">Agree to terms?</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition font-medium">Submit Feedback</button>
+                </form>
+                <!-- TODO: Add radio buttons or a textarea. What happens on submit? Add JS later for handling! -->
+            </div>
+        </section>
+
+        <!-- Exercise 6: Semantic Elements & Multimedia -->
+        <!-- Challenge: Wrap content in <article> or <section>. Embed a video or audio. Use Tailwind for responsive media. -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <article class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold text-amber-700 mb-4 border-b-2 border-amber-200 pb-2">Exercise 6: Semantics & Media</h2>
+                <p class="text-gray-700 mb-4">This <article> demonstrates semantic HTML for better accessibility.</p>
+                <video width="400" controls class="mx-auto rounded-lg shadow-lg">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag. <!-- Fallback: Try a placeholder GIF URL -->
+                </video>
+                <p class="text-gray-600 mt-4 text-center">Embedded video – replace src with your own!</p>
+                <!-- TODO: Add an <aside> for sidebar notes or <figure> around the video. -->
+            </article>
+        </section>
+
+        <!-- Final Challenge Area -->
+        <!-- Ultimate Challenge: Combine all above into one page. Add your own twist—like a button that changes text with JS. Break it, fix it, iterate! -->
+        <section class="py-12 max-w-4xl mx-auto px-6">
+            <div class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-xl p-10 min-h-64 text-center">
+                <h2 class="text-2xl font-bold text-amber-800 mb-4">Your Turn: Ultimate Experiment Zone</h2>
+                <p class="text-amber-700">Paste code from exercises above or create something new. Remember: Save, refresh, repeat!</p>
+                <button id="testButton" class="mt-4 bg-amber-600 text-white px-6 py-2 rounded-md hover:bg-amber-700 transition">Click to Toggle Text</button>
+                <p id="toggleText" class="mt-2 text-gray-600">Original text – what will you change?</p>
+                <!-- TODO: Add simple JS: document.getElementById('testButton').addEventListener('click', () => { ... }); -->
             </div>
         </section>
     </main>
-
     <!-- Footer (kept exactly as you requested) -->
     <footer class="bg-gray-800 text-white py-10 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,10 +218,16 @@
             </div>
         </div>
     </footer>
-
     <script>
         lucide.createIcons();
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple JS for the toggle button – experiment by changing the text or adding effects!
+        document.getElementById('testButton').addEventListener('click', function() {
+            const text = document.getElementById('toggleText');
+            text.textContent = text.textContent === 'Original text – what will you change?' ? 'You changed me! Great job experimenting.' : 'Original text – what will you change?';
+            text.classList.toggle('text-amber-600');
+        });
     </script>
 </body>
 </html>
