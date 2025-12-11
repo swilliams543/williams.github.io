@@ -328,6 +328,151 @@
 
 
 
+        <!-- Exercise 17: Animated Gradient Background + Mouse Move Effect -->
+        <section class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 animate-gradient-x"></div>
+            <div id="mouseBlob" class="fixed w-96 h-96 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative text-center text-white">
+                <h2 class="text-5xl font-black">Exercise 17: Mouse-Following Blob</h2>
+                <p class="mt-4 text-xl">Move your mouse → watch the blob follow!</p>
+            </div>
+        </section>
+
+        <!-- Exercise 18: Typing Animation (CSS + JS) -->
+        <3 -->
+        <section class="py-20 bg-gray-900 text-white text-center">
+            <h2 class="text-4xl font-bold mb-8">Exercise 18: Typing Effect</h2>
+            <p class="text-2xl">
+                <span id="typing" class="border-r-4 border-white animate-pulse"></span>
+            </p>
+        </section>
+
+        <!-- Exercise 19: 3D Card Tilt (Vanilla Tilt.js style with pure CSS/JS) -->
+        <section class="py-20 bg-gradient-to-b from-sky-100 to-white">
+            <div class="max-w-md mx-auto perspective-1000">
+                <div id="tiltCard" class="bg-white rounded-2xl shadow-2xl p-10 text-center transform-gpu transition-transform duration-75">
+                    <h3 class="text-3xl font-bold text-sky-700">Tilt Me!</h3>
+                    <p class="mt-4">Move mouse over → 3D tilt effect</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise 20: Confetti Cannon Button -->
+        <section class="py-20 text-center bg-yellow-50">
+            <h2 class="text-4xl font-bold mb-8">Exercise 20: Confetti Explosion</h2>
+            <button id="confettiBtn" class="bg-pink-600 text-white px-12 py-6 rounded-full text-2xl hover:bg-pink-700 shadow-lg hover:shadow-2xl transition">
+                Click for Confetti!
+            </button>
+        </section>
+
+        <!-- Exercise 21: Scroll Progress Bar (fixed at top) -->
+        <div class="fixed top-0 left-0 w-full h-2 bg-gray-200 z-50">
+            <div class="h-full bg-gradient-to-r from-green-500 to-blue-600 transition-all duration-300" id="scrollProgress"></div>
+        </div>
+        <section class="py-32 text-center">
+            <h2 class="text-4xl font-bold">Exercise 21: Scroll Progress</h2>
+            <p class="text-xl mt-8">Scroll down → see the colorful bar grow!</p>
+            <div class="h-screen"></div><div class="h-screen"></div>
+        </section>
+
+        <!-- Exercise 22: Glassmorphism Cards -->
+        <section class="py-20 bg-[url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7')] bg-cover bg-center">
+            <div class="backdrop-blur-md bg-white/30 min-h-screen flex items-center justify-center">
+                <div class="bg-white/60 backdrop-blur-xl rounded-3xl p-12 shadow-2xl border border-white/20 max-w-lg text-white text-center">
+                    <h2 class="text-4xl font-bold">Exercise 22: Glassmorphism</h2>
+                    <p class="mt-4">Pure Tailwind magic — try changing opacity, blur, or add hover:backdrop-blur-2xl</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise 23: Parallax Scrolling Sections -->
+        <section class="h-screen bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4')">
+            <div class="h-full bg-black/40 flex items-center justify-center">
+                <h2 class="text-6xl font-black text-white">Exercise 23: Parallax</h2>
+            </div>
+        </section>
+        <section class="h-screen bg-gray-100 flex items-center justify-center">
+            <h2 class="text-6xl font-black text-gray-800">Normal Section</h2>
+        </section>
+
+        <!-- Exercise 24: Neumorphism Toggle Switches -->
+        <section class="py-20 bg-gray-100 text-center">
+            <h2 class="text-4xl font-bold mb-12">Exercise 24: Neumorphic Toggles</h2>
+            <div class="space-x-12">
+                <label class="relative inline-block w-20 h-10">
+                    <input type="checkbox" class="opacity-0 w-0 h-0">
+                    <span class="absolute inset-0 bg-gray-300 rounded-full shadow-inner"></span>
+                    <span class="absolute left-1 top-1 w-8 h-8 bg-white rounded-full shadow-lg transition transform translate-x-10 when:checked"></span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Exercise 25: Image Hover Zoom + Overlay -->
+        <section class="py-20 max-w-5xl mx-auto grid grid-cols-3 gap-8">
+            <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                <img src="https://picsum.photos/400/500?random=1" class="transition duration-700 group-hover:scale-125">
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <p class="text-white text-2xl font-bold">Zoomed!</p>
+                </div>
+            </div>
+            <!-- Repeat 2 more times or use grid-cols-1 to -4 -->
+        </section>
+
+        <!-- Exercise 26: Counter Animation on Scroll -->
+        <section class="py-32 text-center bg-indigo-600 text-white">
+            <h2 class="text-5xl font-bold mb-12">Exercise 26: Numbers Go Brrr</h2>
+            <div class="grid grid-cols-3 gap-8 text-6xl font-black">
+                <div><span class="counter" data-target="1234">0</span>+</div>
+                <div><span class="counter" data-target="567">0</span> Projects</div>
+                <div><span class="counter" data-target="89">0</span>% Fun</div>
+            </div>
+        </section>
+
+        <!-- Exercise 27: Drag & Drop Zone -->
+        <section class="py-20 bg-gradient-to-b from-purple-100 to-pink-100">
+            <h2 class="text-center text-4xl font-bold mb-12">Exercise 27: Drag & Drop</h2>
+            <div class="max-w-2xl mx-auto grid grid-cols-2 gap-8">
+                <div id="dragSource" class="bg-white p-10 text-center rounded-xl shadow-lg cursor-move">Drag Me!</div>
+                <div id="dropZone" class="bg-white/50 border-4 border-dashed border-purple-400 rounded-xl h-48 flex items-center justify-center text-2xl">Drop Here</div>
+            </div>
+        </section>
+
+        <!-- Exercise 28: Particle Background (Canvas) -->
+        <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+        <section class="relative py-40 text-white text-center">
+            <h2 class="text-6xl font-black">Exercise 28: Particle Storm</h2>
+            <p class="mt-4 text-2xl">Watch the magic behind the text</p>
+        </section>
+
+        <!-- Exercise 29: Text Reveal on Scroll (Intersection Observer) -->
+        <section class="py-32 space-y-20">
+            <h2 class="text-center text-4xl font-bold text-center mb-20">Exercise 29: Scroll Reveal</h2>
+            <p class="text-3xl text-center opacity-0 translate-y-20 transition duration-1000" data-reveal>Appears when you scroll!</p>
+            <p class="text-3xl text-center opacity-0 translate-y-20 transition duration-1000" data-reveal>Keep scrolling...</p>
+            <p class="text-3xl text-center opacity-0 translate-y-20 transition duration-1000" data-reveal>Surprise!</p>
+        </section>
+
+        <!-- Exercise 30: Music Visualizer Placeholder (Future Audio API fun) -->
+        <section class="py-32 bg-black text-white text-center">
+            <h2 class="text-5xl font-bold mb-8">Exercise 30: Future Audio Visualizer</h2>
+            <div class="visualizer" class="flex justify-center space-x-2 h-32">
+                <div class="w-4 bg-gradient-to-t from-green-400 to-pink-600 animate-pulse"></div>
+                <!-- Add 20+ more with different heights -->
+            </div>
+            <p>Drop an audio file + Web Audio API = Party</p>
+        </section>
+
+        <!-- Exercise 31: Infinite Scroll Placeholder -->
+        <section class="py-20 bg-gray-50">
+            <h2 class="text-center text-4xl font-bold mb-12">Exercise 31: Infinite Scroll Coming Soon</h2>
+            <div id="infiniteList" class="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- JS will append items here forever -->
+            </div>
+        </section>
+
+
+
+
         <!-- Final Challenge Area -->
         <!-- Ultimate Challenge: Combine all above into one page. Add your own twist—like a button that changes text with JS. Break it, fix it, iterate! -->
         <section class="py-12 max-w-4xl mx-auto px-6">
@@ -384,5 +529,110 @@
             text.classList.toggle('text-amber-600');
         });
     </script>
+
+    <script>
+        lucide.createIcons();
+
+        // 17: Mouse blob
+        document.addEventListener('mousemove', e => {
+            document.getElementById('mouseBlob').style.transform = `translate(${e.clientX - 192}px, ${e.clientY - 192}px)`;
+        });
+
+        // 18: Typing animation
+        const words = ["HTML", "Tailwind", "JavaScript", "Fun!"];
+        let i = 0, j = 0;
+        const type = () => {
+            if (j < words[i].length) {
+                document.getElementById('typing').textContent += words[i][j];
+                j++;
+                setTimeout(type, 150);
+            } else {
+                setTimeout(() => {
+                    document.getElementById('typing').textContent = '';
+                    j = 0; i = (i + 1) % words.length;
+                    type();
+                }, 1000);
+            }
+        };
+        type();
+
+        // 19: 3D Tilt
+        const card = document.getElementById('tiltCard');
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => card.style.transform = 'rotateX(0) rotateY(0)');
+
+        // 20: Confetti
+        document.getElementById('confettiBtn').addEventListener('click', () => {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        });
+
+        // 21: Scroll progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // 26: Counter Animation – FIXED VERSION
+        const counters = document.querySelectorAll('.counter');
+
+        const startCounter = (el) => {
+            const target = +el.getAttribute('data-target');
+            let count = 0;
+            const increment = target / 80; // Controls speed
+
+            const updateCounter = () => {
+                if (count < target) {
+                    count += increment;
+                    el.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCounter); // Smoother than setTimeout
+                } else {
+                    el.innerText = target; // Final exact final number
+                }
+            };
+            updateCounter();
+        };
+
+        // Trigger when element enters viewport
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounter(entry.target);
+                    counterObserver.unobserve(entry.target); // Run only once
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // 27: Drag & Drop (basic)
+        const source = document.getElementById('dragSource');
+        const zone = document.getElementById('dropZone');
+        source.addEventListener('dragstart', e => e.dataTransfer.setData('text', ''));
+        zone.addEventListener('dragover', e => e.preventDefault());
+        zone.addEventListener('drop', () => zone.textContent = 'Dropped!');
+
+        // 29: Scroll reveal
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        }, { threshold: 0.3 }).observeAll(document.querySelectorAll('[data-reveal]'));
+
+        // Add confetti.js from CDN at the bottom if you want real confetti
+    </script>
+
 </body>
 </html>
