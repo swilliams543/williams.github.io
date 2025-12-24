@@ -6,21 +6,26 @@
     <title>SandBox Test Bed</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <!-- Inter font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
         }
     </style>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script> <!-- confetti code for exercise 20 later on -->
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- Header & Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-[999]">
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-[999] transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
             <!-- Logo / Title -->
             <div class="flex items-center space-x-3">
@@ -333,12 +338,25 @@
             <div class="bg-white rounded-lg shadow-md p-8 mb-8">
                 <h2 class="text-3xl font-bold text-amber-700 mb-6 border-b-2 border-amber-200 pb-2">Exercise 12: Progress Bars</h2>
                 <p class="mb-2">HTML Skill: <strong>75%</strong></p>
+                <p class="mb-2 flex justify-between">
+                    <span>HTML Skill (Click buttons to animate):</span>
+                    <span id="skillLabel" class="font-bold">75%</span>
+                </p>
                 <div class="w-full bg-gray-200 rounded-full h-8 overflow-hidden">
                     <div class="bg-amber-600 h-full text-white text-center font-bold transition-all duration-1000" style="width: 75%">75%</div>
+                    <div id="skillBar" class="bg-amber-600 h-full text-white text-center font-bold transition-all duration-1000 flex items-center justify-center" style="width: 75%">75%</div>
                 </div>
                 <p class="mt-6 mb-2">Tailwind Mastery: <strong>45%</strong></p>
+                <div class="flex gap-2 mt-3 mb-6">
+                    <button onclick="document.getElementById('skillBar').style.width='25%'; document.getElementById('skillBar').innerText='25%'; document.getElementById('skillLabel').innerText='25%'" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm transition">25%</button>
+                    <button onclick="document.getElementById('skillBar').style.width='75%'; document.getElementById('skillBar').innerText='75%'; document.getElementById('skillLabel').innerText='75%'" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm transition">75%</button>
+                    <button onclick="document.getElementById('skillBar').style.width='100%'; document.getElementById('skillBar').innerText='100%'; document.getElementById('skillLabel').innerText='100%'" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm transition">100%</button>
+                </div>
+
+                <p class="mb-2">Tailwind Mastery: <strong>45%</strong></p>
                 <div class="w-full bg-gray-200 rounded-full h-8 overflow-hidden">
                     <div class="bg-gradient-to-r from-pink-500 to-amber-500 h-full text-white text-center font-bold animate-pulse" style="width: 45%">45%</div>
+                    <div class="bg-gradient-to-r from-pink-500 to-amber-500 h-full text-white text-center font-bold animate-pulse flex items-center justify-center" style="width: 45%">45%</div>
                 </div>
             </div>
         </section>
@@ -348,7 +366,7 @@
         <section class="py-12 max-w-4xl mx-auto px-6 text-center">
             <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8 mb-8">
                 <h2 class="text-3xl font-bold text-amber-700 dark:text-amber-400 mb-6">Exercise 13: Dark Mode Toggle</h2>
-                <button id="themeToggle" class="text-4xl">Toggle</button>
+                <button id="themeToggle" class="text-4xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">🌙</button>
                 <p class="mt-4 text-lg">Try me – I actually work!</p>
             </div>
         </section>
@@ -619,6 +637,16 @@
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
             }
+        });
+
+        // Exercise 13: Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlRoot = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlRoot.classList.toggle('dark');
+            // Switch icon: Sun for light mode, Moon for dark mode
+            themeToggleBtn.textContent = htmlRoot.classList.contains('dark') ? '☀️' : '🌙';
         });
     </script>
 
