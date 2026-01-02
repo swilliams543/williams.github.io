@@ -669,6 +669,28 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Exercise 15: Canvas Drawing Logic
+        const canvas = document.getElementById('myCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            // Draw a starting rectangle
+            ctx.fillStyle = '#d97706'; // amber-600
+            ctx.fillRect(50, 50, 100, 100);
+            
+            // Add click interaction: Draw a random colored circle where clicked
+            canvas.addEventListener('click', function(event) {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 20, 0, 2 * Math.PI);
+                ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                ctx.fill();
+            });
+        }
     </script>
 
     <script>
