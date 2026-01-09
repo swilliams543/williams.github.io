@@ -696,27 +696,51 @@
     <script>
         lucide.createIcons();
 
-        // 17: Mouse blob
+        // 17: Mouse blob (customized with lag)
+        let blobX = window.innerWidth / 2, blobY = window.innerHeight / 2;
         document.addEventListener('mousemove', e => {
-            document.getElementById('mouseBlob').style.transform = `translate(${e.clientX - 192}px, ${e.clientY - 192}px)`;
+            blobX = e.clientX - 144; // Center for w-72 (288px)
+            blobY = e.clientY - 144;
         });
+        function animateBlob() {
+            const blob = document.getElementById('mouseBlob');
+            // Smoothly interpolate position
+            const current = blob.style.transform.match(/-?\d+(\.\d+)?/g) || [blobX, blobY];
+            let x = parseFloat(current[0]) || blobX, y = parseFloat(current[1]) || blobY;
+            x += (blobX - x) * 0.15;
+            y += (blobY - y) * 0.15;
+            blob.style.transform = `translate(${x}px, ${y}px)`;
+            requestAnimationFrame(animateBlob);
+        }
+        animateBlob();
 
-        // 18: Typing animation
-        const words = ["HTML", "Tailwind", "JavaScript", "Fun!"];
-        let i = 0, j = 0;
-        const type = () => {
-            if (j < words[i].length) {
-                document.getElementById('typing').textContent += words[i][j];
+        // 18: Typing animation (customized)
+        const words = ["Welcome!", "Sarah's Sandbox", "🌟 Creativity", "🚀 Explore", "💡 Learn"];
+        let i = 0, j = 0, isDeleting = false;
+        const typingEl = document.getElementById('typing');
+        function type() {
+            const currentWord = words[i];
+            if (!isDeleting) {
+                typingEl.textContent = currentWord.slice(0, j + 1);
                 j++;
-                setTimeout(type, 150);
+                if (j === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1200); // Pause before deleting
+                } else {
+                    setTimeout(type, 120);
+                }
             } else {
-                setTimeout(() => {
-                    document.getElementById('typing').textContent = '';
-                    j = 0; i = (i + 1) % words.length;
-                    type();
-                }, 1000);
+                typingEl.textContent = currentWord.slice(0, j - 1);
+                j--;
+                if (j === 0) {
+                    isDeleting = false;
+                    i = (i + 1) % words.length;
+                    setTimeout(type, 400);
+                } else {
+                    setTimeout(type, 60);
+                }
             }
-        };
+        }
         type();
 
         // 19: 3D Tilt
