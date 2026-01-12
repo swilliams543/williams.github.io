@@ -402,12 +402,19 @@
         </section>
 
         <!-- Exercise 16: Your Own Creation Zone -->
-        <section class="py-20 bg-gradient-to-br from-amber-50 to-orange-100">
+        <section class="py-20 bg-blue-50">
             <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-5xl font-extrabold text-amber-800 mb-6">Exercise 16: YOUR TURN!</h2>
-                <p class="text-2xl text-gray-700 mb-8">Try building something new here; build whatever you want.</p>
-                <p class="text-xl italic text-gray-600">A game? A portfolio? A meme generator? The sandbox is yours!</p>
-                <i data-lucide="rocket" class="w-24 h-24 text-amber-600 mx-auto mt-8 animate-bounce"></i>
+                <h2 class="text-5xl font-extrabold text-blue-800 mb-6">Exercise 16: Click Counter</h2>
+                <p class="text-xl text-gray-600 mb-4">Count how many times you click!</p>
+                <div class="text-8xl font-bold text-blue-600 mb-8" id="counterDisplay">0</div>
+                <button onclick="document.getElementById('counterDisplay').innerText = parseInt(document.getElementById('counterDisplay').innerText) + 1" 
+                        class="bg-blue-600 text-white px-8 py-4 rounded-xl text-xl font-bold hover:bg-blue-700 transition shadow-lg active:scale-95">
+                    Click Me +1
+                </button>
+                <button onclick="document.getElementById('counterDisplay').innerText = 0" 
+                        class="ml-4 bg-gray-300 text-gray-700 px-8 py-4 rounded-xl text-xl font-bold hover:bg-gray-400 transition shadow-lg active:scale-95">
+                    Reset
+                </button>
             </div>
         </section>
 
