@@ -450,6 +450,19 @@
         </section>
 
         <!-- Exercise 20: Confetti Cannon Button -->
+            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+            <script>
+      const btn = document.getElementById('confettiBtn');
+
+          btn.addEventListener('click', () => {
+            confetti({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 },
+              colors: ['#db2777', '#fcd34d', '#ffffff'] // Matches your pink/yellow theme
+            });
+          });
+        </script>
         <section class="py-20 text-center bg-yellow-50">
             <h2 class="text-4xl font-bold mb-8">Exercise 20: Confetti Explosion</h2>
             <button id="confettiBtn" class="bg-pink-600 text-white px-12 py-6 rounded-full text-2xl hover:bg-pink-700 shadow-lg hover:shadow-2xl transition">
