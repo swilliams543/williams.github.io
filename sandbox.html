@@ -505,28 +505,39 @@
             <h2 class="text-4xl font-bold mb-12">Exercise 24: Neumorphic Toggles</h2>
             <div class="space-x-12">
                 <label class="relative inline-block w-20 h-10">
-                    <input type="checkbox" class="opacity-0 w-0 h-0">
-                    <span class="absolute inset-0 bg-gray-300 rounded-full shadow-inner"></span>
-                    <span class="absolute left-1 top-1 w-8 h-8 bg-white rounded-full shadow-lg transition transform translate-x-10 when:checked"></span>
+                    <input type="checkbox" class="peer opacity-0 w-0 h-0">
+                    <span class="absolute inset-0 bg-gray-300 rounded-full shadow-inner peer-checked:bg-green-500 transition-colors duration-300"></span>
+                    <span class="absolute left-1 top-1 w-8 h-8 bg-white rounded-full shadow-lg transition transform peer-checked:translate-x-10"></span>
                 </label>
             </div>
         </section>
 
         <!-- Exercise 25: Image Hover Zoom + Overlay -->
-        <section class="py-20 max-w-5xl mx-auto grid grid-cols-3 gap-8">
+        <section class="py-20 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                <img src="https://picsum.photos/400/500?random=1" class="transition duration-700 group-hover:scale-125">
-                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <img src="https://picsum.photos/400/500?random=1" class="w-full h-full object-cover transition duration-700 group-hover:scale-125">
+                <div class="absolute inset-0 bg-black/60 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <p class="text-white text-2xl font-bold">Zoomed!</p>
                 </div>
             </div>
-            <!-- Repeat 2 more times or use grid-cols-1 to -4 -->
+            <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                <img src="https://picsum.photos/400/500?random=2" class="w-full h-full object-cover transition duration-700 group-hover:scale-125">
+                <div class="absolute inset-0 bg-black/60 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <p class="text-white text-2xl font-bold">Zoomed!</p>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                <img src="https://picsum.photos/400/500?random=3" class="w-full h-full object-cover transition duration-700 group-hover:scale-125">
+                <div class="absolute inset-0 bg-black/60 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <p class="text-white text-2xl font-bold">Zoomed!</p>
+                </div>
+            </div>
         </section>
 
         <!-- Exercise 26: Counter Animation on Scroll -->
         <section class="py-32 text-center bg-indigo-600 text-white">
             <h2 class="text-5xl font-bold mb-12">Exercise 26: Numbers Go Brrr</h2>
-            <div class="grid grid-cols-3 gap-8 text-6xl font-black">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-6xl font-black">
                 <div><span class="counter" data-target="1234">0</span>+</div>
                 <div><span class="counter" data-target="567">0</span> Projects</div>
                 <div><span class="counter" data-target="89">0</span>% Fun</div>
@@ -536,8 +547,8 @@
         <!-- Exercise 27: Drag & Drop Zone -->
         <section class="py-20 bg-gradient-to-b from-purple-100 to-pink-100">
             <h2 class="text-center text-4xl font-bold mb-12">Exercise 27: Drag & Drop</h2>
-            <div class="max-w-2xl mx-auto grid grid-cols-2 gap-8">
-                <div id="dragSource" class="bg-white p-10 text-center rounded-xl shadow-lg cursor-move">Drag Me!</div>
+            <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="dragSource" draggable="true" class="bg-white p-10 text-center rounded-xl shadow-lg cursor-move hover:scale-105 transition">Drag Me!</div>
                 <div id="dropZone" class="bg-white/50 border-4 border-dashed border-purple-400 rounded-xl h-48 flex items-center justify-center text-2xl">Drop Here</div>
             </div>
         </section>
@@ -830,13 +841,14 @@
         zone.addEventListener('drop', () => zone.textContent = 'Dropped!');
 
         // 29: Scroll reveal
-        new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('opacity-100', 'translate-y-0');
                 }
             });
-        }, { threshold: 0.3 }).observeAll(document.querySelectorAll('[data-reveal]'));
+        }, { threshold: 0.3 });
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
 
         // Add confetti.js from CDN at the bottom if you want real confetti
     </script>
