@@ -41,6 +41,36 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        .writing-menu {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            background: #2f7040;
+        }
+
+        .writing-menu-inner {
+            width: min(1160px, 100%);
+            min-height: 48px;
+            margin: auto;
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 34px;
+            font: 600 0.74rem 'Poppins', sans-serif;
+        }
+
+        .writing-menu-label {
+            color: #d5efce;
+            text-transform: uppercase;
+        }
+
+        .writing-menu a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .writing-menu a:hover { color: #ffe3a1; }
+
         .header-inner {
             width: min(1160px, 100%);
             min-height: 76px;
@@ -257,6 +287,7 @@
 
         @media (max-width: 850px) {
             .header-inner { flex-wrap: wrap; }
+            .writing-menu-inner { gap: 22px; }
             .menu-toggle { display: block; }
             .nav-links {
                 display: none;
@@ -275,6 +306,8 @@
             .page-shell { width: min(100% - 28px, 1080px); padding: 42px 0 52px; }
             .header-inner { padding: 10px 16px; }
             .brand { font-size: 1.15rem; }
+            .writing-menu-inner { flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; }
+            .writing-menu-label { flex-basis: 100%; text-align: center; }
             .page-intro { margin-bottom: 30px; }
             .author-card { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
             .author-photo { width: min(220px, 75%); margin: auto; }
@@ -305,6 +338,14 @@
                 <a href="index.html">Home</a>
             </nav>
         </div>
+        <nav class="writing-menu" aria-label="Writing section">
+            <div class="writing-menu-inner">
+                <span class="writing-menu-label">The Writing Desk</span>
+                <a href="#author-section">About Sarah</a>
+                <a href="#bookshelf">Bookshelf</a>
+                <a href="#connect">Connect</a>
+            </div>
+        </nav>
     </header>
 
     <main class="page-shell">
@@ -314,7 +355,7 @@
             <p>Christian fiction and nonfiction author sharing stories and encouragement shaped by faith.</p>
         </section>
 
-        <section class="author-card" aria-labelledby="biography-title">
+        <section class="author-card" id="author-section" aria-labelledby="biography-title">
             <img class="author-photo" src="img/Screenshot_20251102-151245-718.png" alt="Portrait of author Sarah Williams">
             <div>
                 <p class="eyebrow">The author</p>
@@ -323,7 +364,7 @@
             </div>
         </section>
 
-        <section class="books-section" aria-labelledby="books-title">
+        <section class="books-section" id="bookshelf" aria-labelledby="books-title">
             <div class="section-heading">
                 <h2 id="books-title">Published Works</h2>
                 <p>Find a story to take with you.</p>
@@ -386,7 +427,7 @@
             </div>
         </section>
 
-        <section class="books-section social-links" aria-labelledby="connect-title">
+        <section class="books-section social-links" id="connect" aria-labelledby="connect-title">
             <div class="section-heading">
                 <h2 id="connect-title">Connect with Sarah</h2>
             </div>
