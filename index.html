@@ -42,7 +42,7 @@
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
   }
   .logo-title {
@@ -73,8 +73,11 @@
   }
   .nav-links {
     display: flex;
-    gap: 48px;
+    flex: 1;
+    gap: 40px;
     align-items: center;
+    justify-content: flex-end;
+    margin-left: 48px;
   }
   .nav-links a {
     color: white;
@@ -114,6 +117,7 @@
     cursor: pointer;
   }
   @media (max-width: 768px) {
+    .header-inner { justify-content: space-between; }
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
   }
