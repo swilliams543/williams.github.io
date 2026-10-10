@@ -157,6 +157,59 @@
             font-size: 1.35rem;
         }
 
+        .writer-corner {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+            margin-bottom: 72px;
+            border-top: 5px solid var(--pink);
+            background: var(--paper);
+            box-shadow: 0 14px 38px rgba(45, 48, 40, 0.09);
+        }
+
+        .writer-photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .writer-copy { padding: 38px 42px; }
+
+        .writer-copy h2 {
+            margin: 0 0 10px;
+            color: var(--pink);
+            font-size: 2.35rem;
+            line-height: 1.2;
+        }
+
+        .writer-meta {
+            margin: 0 0 24px;
+            color: var(--muted);
+            font: 500 0.76rem 'Poppins', sans-serif;
+        }
+
+        .writer-copy > p:not(.eyebrow, .writer-meta) {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .writer-tip {
+            padding-left: 18px;
+            border-left: 3px solid var(--green);
+        }
+
+        .writer-tip strong { color: var(--green); }
+
+        .writer-signoff {
+            margin-top: 26px !important;
+            color: var(--green) !important;
+            font-weight: 600;
+        }
+
         .author-card {
             display: grid;
             grid-template-columns: minmax(190px, 280px) 1fr;
@@ -297,6 +350,8 @@
             }
             .nav-links.is-open { display: flex; }
             .nav-links a { padding: 9px 0; }
+            .writer-corner { grid-template-columns: minmax(0, 1fr); }
+            .writer-photo { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
         }
 
         @media (max-width: 560px) {
@@ -305,6 +360,9 @@
             .brand { font-size: 1.15rem; }
             .writing-menu-inner { flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; }
             .writing-menu-label { flex-basis: 100%; text-align: center; }
+            .writer-corner { margin-bottom: 52px; }
+            .writer-copy { padding: 26px 22px; }
+            .writer-copy h2 { font-size: 1.9rem; }
             .page-intro { margin-bottom: 30px; }
             .author-card { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
             .author-photo { width: min(220px, 75%); margin: auto; }
@@ -339,6 +397,7 @@
         <nav class="writing-menu" aria-label="Writing section">
             <div class="writing-menu-inner">
                 <span class="writing-menu-label">The Writing Desk</span>
+                <a href="#writers-corner">Writer's Corner</a>
                 <a href="#author-section">About Sarah</a>
                 <a href="#bookshelf">Bookshelf</a>
                 <a href="#connect">Connect</a>
@@ -347,6 +406,19 @@
     </header>
 
     <main class="page-shell">
+        <section class="writer-corner" id="writers-corner" aria-labelledby="writers-corner-title">
+            <img class="writer-photo" src="img/coffee%20shop.jpg" alt="Sarah writing at a table in a coffee shop">
+            <article class="writer-copy">
+                <p class="eyebrow">Writer's Corner</p>
+                <h2 id="writers-corner-title">How to Get Started as a Writer</h2>
+                <p class="writer-meta">Posted November 25, 2025</p>
+                <p>I have loved to write since I was a child. You may also love to write and know that you want to be a writer or novelist. That dedicated interest is an important first step: without it, you may find it harder to see a writing project through to the end.</p>
+                <p class="writer-tip"><strong>Tip 1: Dedication and Motivation.</strong> A writer needs consistency and motivation to carry a project from start to finish. I am also my own editor, so I edit my stories after I write them.</p>
+                <p>The second step is to <strong>start writing</strong>. When I first began, I set aside an hour each evening to work toward finishing my first novel. You may not need that same schedule as you develop your craft, but a steady routine can help build discipline and momentum. Following mine, I finished the novel in about a year.</p>
+                <p class="writer-signoff">Join me for the next post, where I’ll share more tips for growing as a writer. Happy writing!</p>
+            </article>
+        </section>
+
         <section class="page-intro" aria-labelledby="page-title">
             <p class="eyebrow">Stories of faith, courage, and becoming</p>
             <h1 id="page-title">Meet Sarah Williams</h1>
