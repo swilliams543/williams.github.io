@@ -1,6 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writer’s Block: A Pause for Inspiration</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        },
+                        stone: {
+                            850: '#211f1d',
+                            950: '#0c0a09',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .drop-cap::first-letter {
+            font-size: 3.8rem;
+            line-height: 0.8;
+            float: left;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            font-weight: 700;
+            color: #b45309;
+        }
+        .dark .drop-cap::first-letter {
+            color: #f59e0b;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-amber-50/40 text-stone-800 dark:bg-stone-950 dark:text-stone-200 font-sans transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-container" class="fixed top-0 left-0 w-full h-1 z-50 bg-stone-200 dark:bg-stone-800">
+        <div id="progress-bar" class="h-full bg-amber-600 dark:bg-amber-500 w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-1 z-40 backdrop-blur-md bg-white/80 dark:bg-stone-900/80 border-b border-stone-200 dark:border-stone-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 text-amber-800 dark:text-amber-500 font-serif font-bold text-lg">
+                <i class="fa-solid me-1 fa-feather-pointed text-xl"></i>
+                <span>Inspirational Corner</span>
+            </a>
+            
+            <!-- Controls Toolbar -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <!-- Font Size Adjuster -->
+                <div class="flex items-center bg-stone-100 dark:bg-stone-800 rounded-lg p-1 border border-stone-200 dark:border-stone-700">
+                    <button id="font-sm" onclick="setFontSize('sm')" class="px-2 py-1 text-xs font-bold rounded hover:bg-white dark:hover:bg-stone-700 transition" title="Small Text">A-</button>
+                    <button id="font-md" onclick="setFontSize('md')" class="px-2 py-1 text-xs font-bold rounded bg-white dark:bg-stone-700 shadow-sm transition" title="Normal Text">A</button>
+                    <button id="font-lg" onclick="setFontSize('lg')" class="px-2 py-1 text-xs font-bold rounded hover:bg-white dark:hover:bg-stone-700 transition" title="Large Text">A+</button>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-amber-100 dark:hover:bg-stone-700 transition" title="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-grow">
+
+        <!-- Article Header Section -->
+        <article>
+            <header class="mb-10 text-center sm:text-left">
+                <!-- Category Tag & Metadata -->
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-4">
+                    <span class="bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs px-3 py-1 rounded-full font-semibold tracking-wide uppercase">
+                        Writing Advice &amp; Faith
+                    </span>
+                    <span class="text-xs text-stone-500 dark:text-stone-400">
+                        <i class="fa-regular fa-clock me-1"></i> 2 min read
+                    </span>
+                    <span class="text-xs text-stone-500 dark:text-stone-400">
+                        <i class="fa-regular fa-calendar me-1"></i> October 16, 2026
+                    </span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 dark:text-stone-50 leading-tight mb-4">
+                    Writer’s Block, also known as a Pause for Inspiration
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-300 font-serif italic mb-6">
+                    Transform your writing roadblocks into a blissful pause for fresh ideas and renewed creativity.
+                </p>
+
+                <!-- Author Info -->
+                <div class="flex items-center justify-center sm:justify-start space-x-3 pt-4 border-t border-stone-200 dark:border-stone-800">
+                    <div class="w-12 h-12 rounded-full bg-amber-700 text-white flex items-center justify-center font-bold text-lg shadow">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-stone-900 dark:text-stone-100">Inspirational Writing Corner</div>
+                        <div class="text-xs text-stone-500 dark:text-stone-400">Author &amp; Creative Encourager</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Hero Feature Image / Visual Banner -->
+            <div class="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-10 shadow-lg border border-stone-200 dark:border-stone-800">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80" 
+                     alt="Cozy writing desk with notebook and fountain pen" 
+                     class="w-full h-full object-cover object-center"
+                     onerror="this.src='https://placehold.co/1200x600/78350f/ffffff?text=Pause+for+Inspiration'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                    <p class="text-stone-200 text-sm font-serif italic">"A stopping point can become the place where inspiration breathes anew."</p>
+                </div>
+            </div>
+
+            <!-- Main Article Content Body -->
+            <div id="article-body" class="prose dark:prose-invert max-w-none text-base sm:text-lg leading-relaxed text-stone-800 dark:text-stone-300 font-serif space-y-6">
+                
+                <p class="drop-cap">
+                    Do you ever reach a stopping point in your writing? You’ve been writing this interesting novella, and all of a sudden the plot grows slow and you are not inspired as to where to take your story and you put your foot on the brakes as your beloved project comes to a screeching halt. 
+                </p>
+
+                <p>
+                    You don’t know how to build the momentum or add in a plot twist of some sort. Then you may do like many writers and stop writing. Some may abandon the writing project altogether.
+                </p>
+
+                <!-- Pull Quote -->
+                <blockquote class="my-8 border-l-4 border-amber-600 dark:border-amber-500 pl-4 sm:pl-6 py-2 italic font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100 bg-amber-50/60 dark:bg-stone-900/50 rounded-r-lg">
+                    "So instead of calling it a stopping point, we can call it a blissful pause for inspiration."
+                </blockquote>
+
+                <p>
+                    Today, I want to share some tips with you that can turn your stopping point into a pause and give you time for inspiration. So instead of calling it a stopping point we can call it a blissful pause for inspiration.
+                </p>
+
+                <!-- Visual Feature Cards / Highlighted Tips -->
+                <div class="my-10 space-y-6 font-sans not-prose">
+                    <h3 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100 mb-4 flex items-center">
+                        <i class="fa-solid fa-lightbulb text-amber-600 dark:text-amber-500 me-2"></i> Key Tips to Reignite Your Writing
+                    </h3>
+
+                    <!-- Tip 1 -->
+                    <div class="p-5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-hands-praying"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-stone-900 dark:text-stone-100 mb-1">1. Turn to Faith &amp; Prayer</h4>
+                                <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+                                    If you have faith like I do, a good tip is to pray that God will give you inspiration. I had reached a pause for inspiration and it lasted for months. Finally, I prayed and asked God if he wanted me to continue to work on this project would he give me inspiration—and less than a few days later God helped me think of some fresh new directions to take the story and now I’m writing again. Although it’s an old project, I have fresh inspiration from God.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 2 -->
+                    <div class="p-5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-plane-departure"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-stone-900 dark:text-stone-100 mb-1">2. Rest &amp; Change Your Scenery</h4>
+                                <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+                                    Another tip is to not beat yourself up. Give yourself time to breathe and take a break from your story. Go on a trip or go on that vacation that you’ve been planning for a while, but keep putting off, and allow yourself to take in the sights and surroundings and this just may be the inspiration that you need for your story. A change of scenery and environment can do that for you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 3 -->
+                    <div class="p-5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-stone-900 dark:text-stone-100 mb-1">3. Talk to Family &amp; Friends</h4>
+                                <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+                                    My last tip is to talk to your family and friends. Share with them your struggle and ask them where you should pick up where you left off from. They could be of great help to you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Takeaways Box -->
+                <div class="my-8 p-6 rounded-xl bg-amber-50 dark:bg-stone-900/80 border-2 border-dashed border-amber-300 dark:border-amber-800/60 font-sans not-prose">
+                    <h4 class="font-bold text-amber-800 dark:text-amber-400 text-lg mb-2 flex items-center">
+                        <i class="fa-solid fa-bookmark me-2"></i> Key Takeaway
+                    </h4>
+                    <p class="text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
+                        Never abandon your dream project when the momentum slows. Reframe your block as a <strong>blissful pause</strong>—pray for divine guidance, step out for a relaxing change of scenery, and converse with loved ones to find your novel's path forward!
+                    </p>
+                </div>
+
+                <p class="text-xl font-bold font-serif text-amber-800 dark:text-amber-500 pt-2">
+                    Happy Writing!
+                </p>
+
+            </div>
+        </article>
+
+        <!-- Social Engagement & Action Bar -->
+        <section class="my-10 pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-wrap items-center justify-between gap-4">
+            
+            <!-- Clap / Like Button -->
+            <div class="flex items-center space-x-3">
+                <button id="clap-btn" onclick="addClap()" class="flex items-center space-x-2 bg-amber-100 hover:bg-amber-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-amber-800 dark:text-amber-400 px-4 py-2.5 rounded-full font-semibold transition active:scale-95 shadow-sm">
+                    <i class="fa-solid fa-hands-clapping text-lg"></i>
+                    <span>Inspire / Clap</span>
+                    <span id="clap-count" class="ml-1 bg-amber-800 dark:bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full font-mono">24</span>
+                </button>
+                <span id="clap-feedback" class="text-xs text-amber-700 dark:text-amber-400 opacity-0 transition-opacity">Inspired! +1</span>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="flex items-center space-x-2">
+                <span class="text-xs text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wider me-1">Share:</span>
+                <button onclick="copyArticleLink()" class="p-2.5 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 transition" title="Copy Link">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+                <button onclick="shareTwitter()" class="p-2.5 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 transition" title="Share on X / Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </button>
+                <button onclick="shareEmail()" class="p-2.5 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 transition" title="Share via Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Newsletter Subscription Card -->
+        <section class="my-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-900 text-white shadow-xl">
+            <div class="max-w-2xl mx-auto text-center space-y-4">
+                <div class="inline-block p-3 bg-white/10 rounded-full mb-1">
+                    <i class="fa-solid fa-paper-plane text-2xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold">Never Miss an Inspirational Spark</h3>
+                <p class="text-amber-100 text-sm sm:text-base">
+                    Join our cozy community of writers. Receive weekly encouragement, writing tips, and faith-centered inspiration directly in your inbox.
+                </p>
+                <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
+                    <input type="email" id="newsletter-email" required placeholder="Enter your email address" class="w-full px-4 py-3 rounded-lg text-stone-900 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300">
+                    <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold rounded-lg text-sm transition shadow-md whitespace-nowrap">
+                        Subscribe Free
+                    </button>
+                </form>
+                <div id="newsletter-message" class="text-xs text-amber-200 hidden"></div>
+            </div>
+        </section>
+
+        <!-- Comment & Discussion Section -->
+        <section class="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800">
+            <h3 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100 mb-6 flex items-center">
+                <i class="fa-solid fa-comments text-amber-600 dark:text-amber-500 me-3"></i> Community Thoughts &amp; Tips
+            </h3>
+
+            <!-- Comment Form -->
+            <form onsubmit="handlePostComment(event)" class="mb-8 p-5 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase mb-1">Your Name</label>
+                    <input type="text" id="comment-author" required placeholder="e.g., Sarah M." class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase mb-1">Share your experience or advice</label>
+                    <textarea id="comment-text" required rows="3" placeholder="How do you overcome writer's block when you hit a pause?" class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                </div>
+                <button type="submit" class="px-5 py-2.5 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-500 text-white font-semibold text-sm rounded-lg shadow transition">
+                    Post Comment
+                </button>
+            </form>
+
+            <!-- Comments List -->
+            <div id="comments-list" class="space-y-4">
+                <!-- Initial Mock Comments rendered dynamically JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 py-8 mt-12 transition-colors">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-3">
+            <p class="font-serif font-bold text-amber-800 dark:text-amber-500">Inspirational Writing Corner</p>
+            <p class="text-xs text-stone-500 dark:text-stone-400">Encouraging writers to transform blocks into moments of grace and inspiration.</p>
+            <p class="text-xs text-stone-400 dark:text-stone-600">&copy; 2026 Inspirational Writing Corner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 px-4 py-3 rounded-lg shadow-xl text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-50 flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check text-green-400 dark:text-green-600"></i>
+        <span id="toast-message">Message here</span>
+    </div>
+
+    <!-- Page Logic JavaScript -->
+    <script>
+        // Default Mock Comments
+        const initialComments = [
+            {
+                author: "Grace Peterson",
+                date: "2 hours ago",
+                text: "This spoke to my heart today. I have had a novel sitting in my drawer for 4 months. Reading this made me realize I need to stop feeling guilty and pray for guidance!"
+            },
+            {
+                author: "David L.",
+                date: "Yesterday",
+                text: "Taking a quick weekend road trip always resets my head when my plot gets stuck. Great reminders here!"
+            }
+        ];
+
+        // State variables
+        let clapCount = 24;
+
+        // On Page Load Initialize
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComments();
+            setupScrollProgress();
+        });
+
+        // 1. Reading Progress Bar Logic
+        function setupScrollProgress() {
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('progress-bar').style.width = scrolled + '%';
+            });
+        }
+
+        // 2. Font Size Adjuster
+        function setFontSize(size) {
+            const body = document.getElementById('article-body');
+            const btnSm = document.getElementById('font-sm');
+            const btnMd = document.getElementById('font-md');
+            const btnLg = document.getElementById('font-lg');
+
+            // Reset active styles on buttons
+            [btnSm, btnMd, btnLg].forEach(btn => btn.classList.remove('bg-white', 'dark:bg-stone-700', 'shadow-sm'));
+
+            if (size === 'sm') {
+                body.className = "prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed text-stone-800 dark:text-stone-300 font-serif space-y-6";
+                btnSm.classList.add('bg-white', 'dark:bg-stone-700', 'shadow-sm');
+            } else if (size === 'md') {
+                body.className = "prose dark:prose-invert max-w-none text-base sm:text-lg leading-relaxed text-stone-800 dark:text-stone-300 font-serif space-y-6";
+                btnMd.classList.add('bg-white', 'dark:bg-stone-700', 'shadow-sm');
+            } else if (size === 'lg') {
+                body.className = "prose dark:prose-invert max-w-none text-lg sm:text-xl leading-relaxed text-stone-800 dark:text-stone-300 font-serif space-y-6";
+                btnLg.classList.add('bg-white', 'dark:bg-stone-700', 'shadow-sm');
+            }
+        }
+
+        // 3. Dark / Light Mode Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun';
+            }
+        }
+
+        // 4. Clap / Like Counter
+        function addClap() {
+            clapCount++;
+            document.getElementById('clap-count').innerText = clapCount;
+            
+            const feedback = document.getElementById('clap-feedback');
+            feedback.classList.remove('opacity-0');
+            setTimeout(() => feedback.classList.add('opacity-0'), 1000);
+        }
+
+        // 5. Sharing Functionalities
+        function copyArticleLink() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            
+            showToast("Article link copied to clipboard!");
+        }
+
+        function shareTwitter() {
+            const text = encodeURIComponent("Check out this article: Writer's Block also known as a Pause for Inspiration");
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+
+        function shareEmail() {
+            const subject = encodeURIComponent("Article: Writer’s Block also known as a Pause for Inspiration");
+            const body = encodeURIComponent("I thought you might enjoy this article on writer's block and inspiration:\n\n" + window.location.href);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        // 6. Comments Storage Logic
+        function loadComments() {
+            const stored = localStorage.getItem('blog_comments');
+            const comments = stored ? JSON.parse(stored) : initialComments;
+            renderComments(comments);
+        }
+
+        function renderComments(comments) {
+            const container = document.getElementById('comments-list');
+            container.innerHTML = '';
+
+            comments.forEach(c => {
+                const item = document.createElement('div');
+                item.className = "p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1 shadow-sm";
+                item.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-stone-900 dark:text-stone-100 text-sm">${escapeHtml(c.author)}</span>
+                        <span class="text-xs text-stone-400">${escapeHtml(c.date)}</span>
+                    </div>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm font-sans leading-relaxed pt-1">${escapeHtml(c.text)}</p>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function handlePostComment(e) {
+            e.preventDefault();
+            const authorInput = document.getElementById('comment-author');
+            const textInput = document.getElementById('comment-text');
+
+            const newComment = {
+                author: authorInput.value.trim(),
+                date: "Just now",
+                text: textInput.value.trim()
+            };
+
+            const stored = localStorage.getItem('blog_comments');
+            const comments = stored ? JSON.parse(stored) : [...initialComments];
+            comments.unshift(newComment);
+
+            localStorage.setItem('blog_comments', JSON.stringify(comments));
+            renderComments(comments);
+
+            authorInput.value = '';
+            textInput.value = '';
+
+            showToast("Comment added successfully!");
+        }
+
+        // 7. Newsletter Handler
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const input = document.getElementById('newsletter-email');
+            const msg = document.getElementById('newsletter-message');
+            
+            msg.innerText = `Thank you for subscribing with ${input.value}! Expect inspirational tips soon.`;
+            msg.classList.remove('hidden');
+            input.value = '';
+
+            showToast("Subscribed to the newsletter!");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Meet Sarah Williams, Christian fiction and nonfiction author, and explore her published books.">
